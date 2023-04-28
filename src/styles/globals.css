@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input{
+    outline: none;
+    color: #000000 ;
+    color: #f8fafc;
+    color: #eff1f0; 
+    color: #1e293b;
+    color: #486491
+}
