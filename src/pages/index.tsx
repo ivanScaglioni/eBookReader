@@ -27,16 +27,6 @@ export default function Home() {
       </Head>
       <Layout>
 
-        {data  &&
-
-          <ProductList products = {data as Product[]} /> 
-
-        }
-   
-
-        <Link href="/api/auth/login">Login</Link>
-
-
 
       </Layout>
 
