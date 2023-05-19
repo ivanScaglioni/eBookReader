@@ -20,20 +20,30 @@ interface ValidBook {
     public_id: string;
   };
   pages: number;
+  year:number;
   key: string;
 }
 
+type Book = {
+  picture: {
+    secure_url: string;
+    public_id: string;
+  };
+  key: string;
+};
+
 const Schema = z.object({
-  title: z.string().min(3),
+  title: z.string().min(1),
   author: z.string().min(1),
-  description: z.string().min(10),
+  description: z.string(),
   pages: z.number().min(-1),
+  year:z.number()
 });
 
 type FormData = z.TypeOf<typeof Schema>;
 
 const remplaceSpace = (sentence: string) => {
-  return sentence.toLowerCase().replace(/\s+/g, "_");
+  return sentence.toLowerCase().trim().replace(/\s+/g, "_");
 };
 
 export default function NewBookForm() {
@@ -42,7 +52,7 @@ export default function NewBookForm() {
   const [selectImage, setSelectImage] = useState<string | null>(null);
   const [selectBook, setSelectBook] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [namePDF, setNamePDF] = useState('')
+  const [namePDF, setNamePDF] = useState("");
 
   const addBook = trpc.bookQuerys.create.useMutation();
 
@@ -55,13 +65,13 @@ export default function NewBookForm() {
       setPreviewUrl(reader.result as string);
     };
 
-    setNamePDF(event.target.files[0].name)
+    setNamePDF(event.target.files[0].name);
     setValidFiles([...validFiles, ...event.target.files]);
   };
 
   const handlePDFDelete = () => {
     setPreviewUrl(null);
-    setNamePDF('')
+    setNamePDF("");
   };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,12 +123,20 @@ export default function NewBookForm() {
     resolver: zodResolver(Schema),
     defaultValues: {
       pages: 1,
+      year: new Date().getFullYear(),
+      author:'C.A.Tac.Pol.'
     },
   });
 
   const onSubmit = async (data: FormData) => {
     const id = toast.loading("Please wait...");
-    var image = { secure_url: "none", public_id: "none" };
+    let book: Book = {
+      picture: {
+        secure_url: "none",
+        public_id: "none",
+      },
+      key: "none",
+    };
     if (validFiles.length > 0) {
       var formData = new FormData();
       validFiles.forEach((file) => formData.append("media", file));
@@ -127,10 +145,8 @@ export default function NewBookForm() {
           "Content-Type": "multipart/form-data",
         },
       });
-
-      console.log(responseUpload)
       if (responseUpload.statusText === "OK") {
-        image = responseUpload.data.data;
+        book = responseUpload.data;
       } else {
         toast.update(id, {
           render: "there was a problem uploading the image",
@@ -142,26 +158,23 @@ export default function NewBookForm() {
 
     const bookSlug = remplaceSpace(data.title);
 
-
-
     const newBook: ValidBook = {
       ...data,
+      ...book,
       slug: bookSlug,
-      picture: image,
-      key: "miAmazonKey",
     };
 
     console.log(newBook);
 
-    // addBook.mutate(newBook, {
-    //   onSuccess: () => {
-    //     console.log("guardado");
-    //     toast.update(id, { autoClose:5000, render: "product saved successfully", type: "success", isLoading: false });
-    //   },
-    //   onError(err) {
-    //     toast.update(id, { autoClose:5000, render: "Error", type: "error", isLoading: false });
-    //   },
-    // });
+    addBook.mutate(newBook, {
+      onSuccess: () => {
+        console.log("guardado");
+        toast.update(id, { autoClose:5000, render: "product saved successfully", type: "success", isLoading: false });
+      },
+      onError(err) {
+        toast.update(id, { autoClose:5000, render: "Error", type: "error", isLoading: false });
+      },
+    });
   };
 
   return (
@@ -249,7 +262,6 @@ export default function NewBookForm() {
                   <div className="  self-center  justify-self-center overflow-hidden flex justify-center items-center min-h-[400px] rounded-sm  ">
                     {previewUrl ? (
                       <>
-                        
                         <div className=" flex  justify-end overflow-hidden max-h-[400px]  group-hover:opacity-75 ">
                           <div className="pdf-preview">
                             <embed
@@ -267,7 +279,6 @@ export default function NewBookForm() {
                             <XMarkIcon className="w-5  text-white-50 " />
                           </button>
                         </div>
-                       
                       </>
                     ) : (
                       <>
@@ -297,10 +308,8 @@ export default function NewBookForm() {
                     )}
                   </div>
                 </div>
-                  <div>{namePDF}</div>
+                <div className="overflow-auto" >{namePDF}</div>
               </div>
-                    
-
 
               <div className="sm:col-span-4 sm:col-start-1  col-span-full">
                 <label
@@ -323,10 +332,10 @@ export default function NewBookForm() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="sm:col-span-1 col-span-full">
                 <label
-                  htmlFor="pages"
+                  htmlFor="year"
                   className="block text-sm  font-medium leading-6"
                 >
                   Year
@@ -335,10 +344,10 @@ export default function NewBookForm() {
                   <div className="flex ro<unded-sm shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-sky-600 sm:max-w-md  dark:ring-gray-700 dark:focus-within:ring-sky-400">
                     <input
                       type="number"
-                      id="pages"
+                      id="year"
                       className="block overflow-hidden  p-2 dark:text-white-50 flex-1 border-0 bg-transparent  text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                       placeholder="1"
-                      {...register("pages", { valueAsNumber: true })}
+                      {...register("year", { valueAsNumber: true })}
                     />
                   </div>
                   <p className="text-red-600 dark:text-red-400">
@@ -346,7 +355,6 @@ export default function NewBookForm() {
                   </p>
                 </div>
               </div>
-              
 
               <div className="sm:col-span-4 sm:col-start-1  col-span-full">
                 <label

@@ -26,6 +26,7 @@ const create = procedure
       description: z.string(),
       author:z.string(),
       pages:z.number(),
+      year:z.number(),
       slug:z.string(),
       picture: z.object({
         secure_url: z.string(),
@@ -44,6 +45,7 @@ const create = procedure
 
 const deleteById = procedure.input(
   z.string()
+  
 ).mutation(async({input})=>{
 
   const deleteProduct = await Book.findByIdAndDelete(input)

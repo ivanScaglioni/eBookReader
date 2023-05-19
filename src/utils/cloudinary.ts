@@ -10,25 +10,25 @@ cloudinary.config({
 
 // upload file
 export const uploadToCloudinary = async (filePath: string | string[]) => {
+  let res: UploadApiResponse[] = [];
   if (Array.isArray(filePath)) {
-    let res: UploadApiResponse[] = [];
     for (let index = 0; index < filePath.length; index++) {
       const cloidinaryRespondse = await cloudinary.uploader.upload(
         filePath[index],
-        { folder: "eCommerce", resource_type: "image" }
+        { folder: "ctactpol", resource_type: "image" }
       );
       res.push(cloidinaryRespondse);
     }
     deleteLocalFile(filePath);
-    return res;
   } else {
-    const res = await cloudinary.uploader.upload(filePath, {
+    const cloidinaryRespondse = await cloudinary.uploader.upload(filePath, {
       folder: "catacpol",
       resource_type: "image",
     });
+    res.push(cloidinaryRespondse);
     deleteLocalFile(filePath);
-    return res;
   }
+  return res;
 };
 
 // delete the image from cloudinary

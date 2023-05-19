@@ -13,7 +13,7 @@ async function connectDB (){
         mongoose.set('strictQuery', false)
         const db = await mongoose.connect(`${process.env.MONGODB_URI}`,
         {
-            dbName:'ecommerce',
+            dbName:'catacpol',
             keepAlive: true,
             keepAliveInitialDelay:300000,
             

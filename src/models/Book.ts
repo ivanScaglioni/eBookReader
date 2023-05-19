@@ -34,7 +34,7 @@ export class BookClass {
   @prop({type:String})
   public author:string;
 
-  @prop({type:String})
+  @prop({type:Number})
   public pages:number;
 
   @prop({type:Number})

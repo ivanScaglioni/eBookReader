@@ -6,6 +6,7 @@ const formidable = require("formidable");
 import { uploadToCloudinary } from "@/utils/cloudinary";
 import { Fields, Files } from "formidable";
 import { parseForm, FormidableError } from "@/lib/parse-form";
+import { UploadApiResponse } from "cloudinary";
 
 
 
@@ -22,8 +23,8 @@ type Data = {
   picture:{
     secure_url:string,
     public_id:string
-  } | null,
-  key:string|null
+  },
+  key:string
 }
 
 let book:Data = {
@@ -52,33 +53,32 @@ const handleFileUpload = async (req: NextApiRequest, res: NextApiResponse<Data>)
     
       //codigo para enviar la protada del libro a cloudinary y el libro a s3 va aqui
       for (let index = 0; index < uploadsFiles.length; index++) {
-        let auxType = uploadsFiles[index].fileType
-        let auxPath = uploadsFiles[index].fileType
-        if(!auxType)continue;
-        if(!auxPath)continue;
+        const auxType = uploadsFiles[index].fileType
+        const auxPath = uploadsFiles[index].urlPath
+        const auxName = uploadsFiles[index].fileName
+        if(!auxType || !auxPath || !auxName)continue;
+        
+        
         if(auxType.includes('pdf') ){
 
           const responseS3 = await uploadToS3(uploadsFiles[index].urlPath, uploadsFiles[index].fileName as string)
+          book.key=auxName
+    
 
-          console.log(responseS3)
         }else if (auxType.includes('image') ){
 
           const responseCloud = await uploadToCloudinary(uploadsFiles[index].urlPath)
 
-          console.log(responseCloud)
-
+          book.picture.public_id = responseCloud[0].public_id
+          book.picture.secure_url= responseCloud[0].secure_url
+   
         }
 
-        
-      
 
         
       }
 
-      
     
-
-      console.log("chau")
       return res.status(200).json(book); 
 
 
