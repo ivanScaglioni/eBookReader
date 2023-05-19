@@ -1,11 +1,11 @@
 import { z } from 'zod';
 import { procedure, router } from '../trpc';
 
-import { productRouter } from './product';
+import { bookRouter } from './book';
 
 
 export const appRouter = router({
-  product:productRouter
+  bookQuerys: bookRouter
 }) ;
 
 

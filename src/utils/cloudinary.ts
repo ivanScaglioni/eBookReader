@@ -1,5 +1,6 @@
 import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
-import fs from "fs-extra";
+
+import { deleteLocalFile } from "./fsTools";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -18,14 +19,14 @@ export const uploadToCloudinary = async (filePath: string | string[]) => {
       );
       res.push(cloidinaryRespondse);
     }
-    deleteLocalImage(filePath);
+    deleteLocalFile(filePath);
     return res;
   } else {
     const res = await cloudinary.uploader.upload(filePath, {
-      folder: "eCommerce",
+      folder: "catacpol",
       resource_type: "image",
     });
-    deleteLocalImage(filePath);
+    deleteLocalFile(filePath);
     return res;
   }
 };
@@ -37,25 +38,3 @@ export const deleteFromCloudinary = async (public_id: string) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// delete image from the uploads folder
-const deleteLocalImage = async (localPath: string | string[]) => {
-  if (Array.isArray(localPath)) {
-    for (let index = 0; index < localPath.length; index++) {
-      await fs.unlink(localPath[index]);
-    }
-  } else {
-    await fs.unlink(localPath);
-  }
-};

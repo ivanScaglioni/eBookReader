@@ -22,8 +22,11 @@ export class BookClass {
   @prop({ type: String })
   public description?: string;
 
-  @prop({ type: () => [ImageClass] })
-  public images: ImageClass[];
+  @prop({ type: () => ImageClass })
+  public picture: ImageClass;
+
+  @prop({ type:String})
+  public key:string;
 
   @prop({ required:true,  type: String })
   public slug: string;
@@ -31,8 +34,14 @@ export class BookClass {
   @prop({type:String})
   public author:string;
 
+  @prop({type:String})
+  public pages:number;
+
+  @prop({type:Number})
+  public year:number;
+
 }
 
-const   Book = getModelForClass(BookClass);
+const Book = getModelForClass(BookClass);
 
 export default Book;

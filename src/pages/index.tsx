@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import Layout from '@/layout/Layout';
-import ProductList from '@/components/product/ProductList';
 import { trpc } from '../utils/trpc';
 import Link from 'next/link';
-import { Product } from '@/types/productTypes';
+
 
 
 
 export default function Home() {
-  const {data, isLoading, isError} = trpc.product.get.useQuery();
+  const {data, isLoading, isError} = trpc.bookQuerys.get.useQuery();
  
 
 

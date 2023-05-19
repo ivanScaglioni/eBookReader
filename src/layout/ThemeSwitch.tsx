@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import {  MoonIcon } from "@heroicons/react/24/solid";
+import { MoonIcon } from "@heroicons/react/24/solid";
 
-import {SunIcon  } from "@heroicons/react/24/outline";
+import { SunIcon } from "@heroicons/react/24/outline";
+
+import { LightBulbIcon } from "@heroicons/react/24/solid";
 
 export default function ThemeSwitch() {
   const [isToggled, setIsToggled] = useState(false);
+
+  useEffect(() => {
+    if (document) {
+      if (document.documentElement.className.includes('dark')) {
+        setIsToggled(true);
+      } else {
+        setIsToggled(false);
+      }
+    }
+    
+  }, []);
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
@@ -14,24 +27,29 @@ export default function ThemeSwitch() {
 
   const handleTheme = () => {
     if (!document) return;
-    if (localStorage.theme == "light") {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-    } else {
+    if (document.documentElement.className.includes('dark')) {
       document.documentElement.classList.remove("dark");
       localStorage.theme = "light";
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
     }
+
   };
 
   return (
     <>
       <button
-        className="m-1 rounded-full focus:outline-none relative flex items-center justify-center"
         onClick={handleToggle}
+        className={`relative w-8 h-4 rounded-full ${
+          isToggled ? "bg-green-500" : "bg-gray-400"
+        } focus:outline-none`}
       >
-        <MoonIcon className={`w-7 dark:z-30  dark:text-[#ffffff] text-sky-400 ${isToggled && "opacity-50"}`} />
-
-        <SunIcon  className={`w-6  text-black-900  dark:text-[#ffffff] absolute ${!isToggled && "opacity-50"}`} />
+        <span
+          className={`absolute inset-0 w-4 h-4 bg-white-50 rounded-full shadow transform transition ${
+            isToggled ? "translate-x-full" : "translate-x-0"
+          }`}
+        ></span>
       </button>
     </>
   );

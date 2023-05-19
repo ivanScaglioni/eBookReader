@@ -33,8 +33,8 @@ function Toolbar() {
     }
   };
   return (
-    <div className="fixed top-0 z-10">
-      <div className="w-full  flex justify-center gap-3 bg-black-50">
+    <div className="fixed flex w-full justify-center top-0 z-50">
+      <div className=" flex  justify-center gap-3 bg-black-50">
         <div className="flex gap-1 items-center">
           <div className="rounded-sm ring-1  ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-sky-600   dark:ring-gray-700 dark:focus-within:ring-sky-400">
             <input

@@ -7,6 +7,9 @@ function  book() {
     <div>
       <Layout>
 
+
+        hola soy el libro
+
       </Layout>
 
 

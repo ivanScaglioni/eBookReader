@@ -29,9 +29,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     });
     return;
   }
-
   try {
-
     const { fields, files } = await parseForm(req);
     const file = files.media;
     let url = Array.isArray(file) ? file.map((f) => f.filepath) : file.filepath;
