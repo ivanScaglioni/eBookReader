@@ -129,6 +129,7 @@ export default function NewBookForm() {
   });
 
   const onSubmit = async (data: FormData) => {
+    return;
     const id = toast.loading("Please wait...");
     let book: Book = {
       picture: {

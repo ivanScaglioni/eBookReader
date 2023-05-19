@@ -10,6 +10,8 @@ interface BookState {
     setZoom: (value: number) => void;
     setPage: (value:number)=> void;
     setTotalPages:(value:number) => void;
+    plusZoom: () => void;
+    lessZoom: () => void;
   }
   
 
@@ -42,6 +44,9 @@ const useBookStore = create<BookState>((set)=>({
       return{currentPage:value}
     }),
 
+    plusZoom:()=> set((state)=>{ return{zoom:state.zoom + 0.25} }),
+
+    lessZoom:()=> set((state)=>{ return{zoom:state.zoom - 0.25} }),
     
     setZoom:(value:number) => set(()=>({zoom:value}))
 }))

@@ -54,7 +54,7 @@ const PDFRead = ({url}:Props) => {
           <React.Fragment key={`page_${index + 1}`} >
  
             <div   id={`${index + 1}`} className='pb-5'>
-              <Page  pageNumber={index + 1} scale={1} />
+              <Page  pageNumber={index + 1} scale={zoom} />
             </div>
           </ React.Fragment>
 

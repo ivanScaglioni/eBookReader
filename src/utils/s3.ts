@@ -1,10 +1,12 @@
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { PutObjectCommand, S3Client , GetObjectCommand } from "@aws-sdk/client-s3";
 import fs, { PathLike } from "fs-extra";
+
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 import { deleteLocalFile } from "./fsTools";
 
 import {AWS_BUCKET_NAME,AWS_BUCKET_REGION,AWS_PUBLIC_KEY,AWS_SECRET_KEY } from './config'
-import formidable from "formidable";
+
 
 const client = new S3Client({
     region: AWS_BUCKET_REGION,
@@ -14,7 +16,13 @@ const client = new S3Client({
     }
 })
 
-
+export const getUrlS3 = async(key:string)=>{
+  const command = new GetObjectCommand({
+    Bucket:AWS_BUCKET_NAME,
+    Key:key
+  })
+  return  await getSignedUrl(client, command , { expiresIn: 3600 } )
+}
 
 export const uploadToS3 = async( filePath: string, fileName: string )=>{
 

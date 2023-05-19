@@ -4,11 +4,27 @@ import Book from "@/models/Book";
 import superjson from 'superjson';
 import connectDB from "@/db/db";
 connectDB();
+import { BookType } from "@/types/bookTypes";
+
+import { getUrlS3 } from "@/utils/s3";
 
 const get = procedure.query(async () => {
-  const products = await Book.find();
-  return products;
+  const books = await Book.find() as BookType[] ;
+  return books;
 });
+
+const getBookUrl= procedure.input(
+  z.object({
+    slug:z.string()
+  })
+).query(async({input})=>{
+  const book = await Book.findOne({slug:input.slug})
+  if(!book) return(JSON.stringify({error:'algo salio mal'}))
+  const key= book?.key as string
+  return await getUrlS3(key)
+  
+})
+
 
 const getBookBySlug = procedure.input(
   z.object({
@@ -36,6 +52,7 @@ const create = procedure
     })
   )
   .mutation(async ({ input }) => {
+    return // seguridad
     const newBook = new Book(input);
     const book = await newBook.save();
     console.log(book);
@@ -56,6 +73,7 @@ const deleteById = procedure.input(
 
 export const bookRouter = router({
   getBookBySlug,
+  getBookUrl,
   get,
   create,
 });

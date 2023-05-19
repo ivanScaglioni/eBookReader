@@ -46,6 +46,8 @@ const handleFileUpload = async (req: NextApiRequest, res: NextApiResponse<Data>)
   }
   try {
 
+      res.status(405).json(book);//seguridad
+      
       console.log("hola")
       const { fields, files } = await parseForm(req);
       const file = files.media;
