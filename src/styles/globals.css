@@ -2,15 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Railway';
+  src: url('../../public/fonts/railway_to_hells/Railway\ To\ Hells.ttf') format('truetype');
+  /* Puedes cambiar "YourFont.ttf" por el nombre del archivo de fuente que copiaste en el paso 5 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stencil';
+  src: url('../../public/fonts/stencil_style_new/Stencil\ Style\ New.ttf') format('truetype');
+  /* Puedes cambiar "YourFont.ttf" por el nombre del archivo de fuente que copiaste en el paso 5 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
 
 input{
     outline: none;
     color: #000000 ;
+    color: #000000a1 ;
     color: #f8fafc;
     color: #eff1f0; 
     color: #1e293b;
-    color: #486491
-}
+    color: #486491;
+    color: #2f3949ab;
+  }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -23,3 +44,100 @@ input[type="number"] {
   appearance: textfield; /* Para otros navegadores */
 }
 
+
+.flag{
+  position: absolute;
+  background-image: url('../../public/assests/Flag_of_Argentina.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1 ;
+  
+ 
+
+}
+
+.sol{
+  position: absolute;
+  background-image: url('../../public/assests/Sol_de_Mayo-Bandera_de_Argentina.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1 ;
+ 
+}
+
+.css-flag{
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgb(116, 171, 223) 33.33%, rgba(255,255,255,1) 33.33%, 66.66%, rgb(116, 171, 223) 66.66%);
+  
+}
+
+.texture{
+  background-color: #00000063;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.fn-fal-logo{
+
+  position: absolute;
+  background-image: url('../../public/assests/fn-fal.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1 ;
+  
+
+}
+
+.fn-fal{
+
+ 
+  background-image: url('../../public/assests/flavio-diniz-3e.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1 ;
+  
+
+}
+
+
+.menu-close{
+  animation-name: closeMenu;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.menu-open{
+  animation-name: openMenu;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes closeMenu {
+   0%{
+
+      height: 200px;
+
+   }
+
+   100%{
+    height: 0px;
+   }
+ 
+  
+}
+@keyframes openMenu {
+  0%{
+
+    height: 0;
+
+ }
+
+ 100%{
+  height: 200px;
+ }
+
+  
+}

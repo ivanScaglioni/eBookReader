@@ -1,38 +1,37 @@
+import { ReactNode } from "react";
+import { ToastContainer } from "react-toastify";
+import FlagARG from "@/components/ux/FlagARG";
 
-import  { ReactNode}from "react"
-import { ToastContainer } from "react-toastify"
+import Footer from "./Footer";
+import NavBar from "./NavBar";
 
-import Footer from "./Footer"
-import NavBar from "./NavBar"
-
-export default function Layout({children}: { children: ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
-        <NavBar/>
 
-        <main>
-            {children}
-        
+      <FlagARG></FlagARG>
+      <NavBar />
+
+      <main>
+
+        {children}
+
         <ToastContainer
-      position="bottom-center"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="dark"
-      />
-        
-        </main>
-        
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+      </main>
 
 
-        <Footer />
-      
+      <Footer />
     </>
-
-  )
+  );
 }
