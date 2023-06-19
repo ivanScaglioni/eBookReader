@@ -9,8 +9,8 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
 
-      <FlagARG></FlagARG>
       <NavBar />
+    
 
       <main>
 
@@ -30,8 +30,8 @@ export default function Layout({ children }: { children: ReactNode }) {
         />
       </main>
 
-
-      <Footer />
+{/* 
+      <Footer /> */}
     </>
   );
 }
