@@ -1,4 +1,10 @@
 
+#catacpol{
+    margin-bottom: 30px;
+    box-shadow: 0px 5px 20px rgb(0, 0, 0);
+
+  }
+
 .animation-intro{
     animation-duration: 5s;
     animation-iteration-count: infinite;

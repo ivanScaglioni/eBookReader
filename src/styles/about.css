@@ -1,0 +1,45 @@
+
+.bullet{
+    width: 500px;
+    height: 340px;
+    background-image: url('../../public/assests/bullet/pngegg\ \(1\).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.fal{
+    min-width: 200px;
+    height: 1000px;
+    background-image: url('../../public/assests/gun/FN-FAL.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-name: animation-fal;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.body{
+    min-width: 250px;
+    height: 400px;
+    background-image: url('../../public/assests/pngegg\ \(2\).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+@keyframes animation-fal {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+    
+}

@@ -7,7 +7,7 @@ import Catacpol from "@/components/ux/Catacpol";
 import Welcome from "@/components/sections/Welcome";
 import Contact from "@/components/sections/Contact";
 import About from "@/components/sections/About";
-
+import War from "@/components/ux/War";
 
 export default function Home() {
   return (
@@ -19,22 +19,35 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <main>
+        <main >
 
 
-          <Catacpol />
+          <div className="flex  z-50">
+              <div className=" w-screen z-30">
 
-          <div className="section  justify-center  flex gap-6 w-full ">
-            <div className="max-w-[800px] flex flex-col  gap-6">
+              <Catacpol />
+              </div>
+
+         
+          </div>
+
+    
+
+          <div className="section z-30 justify-center  flex gap-6 w-full ">
+            <div className="max-w-[800px] z-30 flex flex-col  gap-6">
               <Welcome />
               <About />
-              <Contact />
 
        
   
             </div>
 
           </div>
+          
+              <Contact />
+
+
+          <War />
         </main>
       </Layout>
     </>

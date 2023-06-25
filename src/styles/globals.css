@@ -76,6 +76,8 @@ main{
     rgba(255, 255, 255, 1) 33.33% 66.66%,
     rgba(116, 172, 223, 1) 66.66%
   );
+
+
  
 }
 
@@ -87,9 +89,9 @@ background: radial-gradient(ellipse , rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 
 }
 
-.texture {
+/* .texture {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 5 5'%3E%3Cpath fill='%23fefeff' fill-opacity='0.5' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-}
+} */
 .test{
   text-shadow: 0px 0px 10px black, 0px 0px 10px black;
 
@@ -102,7 +104,7 @@ background: radial-gradient(ellipse , rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 
 .fn-fal-logo {
   position: absolute;
-  background-image: url("../../public/assests/fn-fal-svgrepo-com.svg");
+ 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -114,7 +116,7 @@ background: radial-gradient(ellipse , rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 
 
 .fn-fal {
-  background-image: url("../../public/assests/flavio-diniz-3e.jpg");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -139,17 +141,8 @@ background: radial-gradient(ellipse , rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 }
 
 
-.section{
-  /* background: radial-gradient(ellipse at 50% 0% , rgba(0,0,0,0) 0%, rgb(0, 0, 0) 100%); */
-  background-color: #203141;
-  background-color: #1d2e41;
-  
-}
 
-#catacpol{
-  margin-bottom: 30px;
-  box-shadow: 0px 5px 20px rgb(0, 0, 0);
-}
+
 
 .popover{
   background-color: #3c4a5ad5;
@@ -159,14 +152,3 @@ background: radial-gradient(ellipse , rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 }
 
 
-/*  WELCOME */
-
-
-
-/*  ABOUT */
-
-
-
-
-
-/*  CONTACT */

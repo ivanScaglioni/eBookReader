@@ -1,0 +1,27 @@
+.bullet{
+    
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('../../public/assests/bullet/bullets_PNG35495.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-name: shot-to-thrill;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+   z-index: 0;
+   animation-timing-function: linear;
+  
+
+}
+
+@keyframes shot-to-thrill {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(100vh);
+    }
+
+}

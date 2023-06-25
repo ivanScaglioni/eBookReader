@@ -5,15 +5,30 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  
+    
     
     
   }
   
 
 .welcome-text{
-  width: 70%;
-  background-color: rgba(0, 0, 0, 0.685);
+
+  width: 500px;
+  justify-content: flex-end;
  
+  background-color: rgba(0, 0, 0, 0.692);
   backdrop-filter: blur(4px);
   color: rgb(255, 255, 255);
+
+
 }
+
+
+
+.move{
+  transform: translateY(-300px);
+}
+
+
+
