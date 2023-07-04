@@ -8,12 +8,9 @@ import NavBar from "./NavBar";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
-
       <NavBar />
-    
 
       <main>
-
         {children}
 
         <ToastContainer
@@ -30,7 +27,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         />
       </main>
 
-{/* 
+      {/* 
       <Footer /> */}
     </>
   );

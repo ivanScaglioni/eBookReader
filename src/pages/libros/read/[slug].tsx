@@ -1,42 +1,21 @@
-import React from 'react'
-import PDFRead from '@/components/book/PDFRead'
-import { GetServerSideProps } from 'next'
-import Toolbar from '@/components/book/Toolbar'
+import React, { useEffect } from "react";
+import PDFRead from "@/components/book/PDFRead";
 
-import { trpc } from '@/utils/trpc'
+import Toolbar from "@/components/book/Toolbar";
 
+import Layout from "@/layout/Layout";
 
-interface Props{
-    slug:string
-}
+import { useRouter } from "next/router";
 
-
-function Book({slug}:Props) {
-
-    const { data, isLoading, isError } = trpc.bookQuerys.getBookUrl.useQuery({slug:slug});
-    if (isLoading) if (isError) return <div></div>;
-    if (!data) return <div></div>;
-  
+function Book() {
   return (
-    <div className='' >
+    <Layout>
+      <div>
         <Toolbar />
-         <PDFRead url={data}/> 
-    </div>
-  )
+        <PDFRead />
+      </div>
+    </Layout>
+  );
 }
 
-export default Book
-
-
-export const  getServerSideProps:GetServerSideProps = async(ctx)=>{
-
-  
-
-
-    return{
-        props:{
-            slug:ctx.params?.slug 
-            
-        }
-    }
-}
+export default Book;

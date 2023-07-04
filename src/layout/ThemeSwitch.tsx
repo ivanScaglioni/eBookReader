@@ -11,13 +11,12 @@ export default function ThemeSwitch() {
 
   useEffect(() => {
     if (document) {
-      if (document.documentElement.className.includes('dark')) {
+      if (document.documentElement.className.includes("dark")) {
         setIsToggled(true);
       } else {
         setIsToggled(false);
       }
     }
-    
   }, []);
 
   const handleToggle = () => {
@@ -27,14 +26,13 @@ export default function ThemeSwitch() {
 
   const handleTheme = () => {
     if (!document) return;
-    if (document.documentElement.className.includes('dark')) {
+    if (document.documentElement.className.includes("dark")) {
       document.documentElement.classList.remove("dark");
       localStorage.theme = "light";
     } else {
       document.documentElement.classList.add("dark");
       localStorage.theme = "dark";
     }
-
   };
 
   return (

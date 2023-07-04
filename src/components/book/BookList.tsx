@@ -1,14 +1,16 @@
 import React from "react";
 import { trpc } from "@/utils/trpc";
+import Loading from "../ux/Loading";
 
 import { BookType } from "@/types/bookTypes";
 
+
+
 export default function BookList() {
   const { data, isLoading, isError } = trpc.bookQuerys.get.useQuery();
-  if (isLoading) if (isError) return <div></div>;
-  if (!data) return <div></div>;
+  if (isLoading) if (isError) return <Loading />;
+  if (!data) return <Loading />;
 
-  console.log(data);
   return (
     <div>
       {data && (
@@ -66,10 +68,13 @@ export default function BookList() {
                   </div>
 
                   <div className="px-2 ">
-                    <div className="mt-4 flex justify-between gap-4">
+                    <div className="mt-4 max-sm:flex-col flex justify-between gap-4">
                       <div>
                         <div className="">
-                          <a href={`/book/read/${book.slug}`} target="_blanck">
+                          <a
+                            href={`/libros/read/${book.slug}`}
+                            target="_blanck"
+                          >
                             <span
                               aria-hidden="true"
                               className="absolute inset-0"

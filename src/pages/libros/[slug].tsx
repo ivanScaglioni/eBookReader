@@ -1,21 +1,13 @@
-import React from 'react'
-import PDFViewer from '@/components/book/PDFRead'
-import Layout from '@/layout/Layout'
+import React from "react";
+import PDFViewer from "@/components/book/PDFRead";
+import Layout from "@/layout/Layout";
 
-function  book() {
+function book() {
   return (
     <div>
-      <Layout>
-
-
-        hola soy el libro
-
-      </Layout>
-
-
-
+      <Layout>hola soy el libro</Layout>
     </div>
-  )
+  );
 }
 
-export default book
+export default book;

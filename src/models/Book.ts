@@ -25,21 +25,20 @@ export class BookClass {
   @prop({ type: () => ImageClass })
   public picture: ImageClass;
 
-  @prop({ type:String})
-  public key:string;
+  @prop({ type: String })
+  public key: string;
 
-  @prop({ required:true,  type: String })
+  @prop({ required: true, type: String })
   public slug: string;
 
-  @prop({type:String})
-  public author:string;
+  @prop({ type: String })
+  public author: string;
 
-  @prop({type:Number})
-  public pages:number;
+  @prop({ type: Number })
+  public pages: number;
 
-  @prop({type:Number})
-  public year:number;
-
+  @prop({ type: Number })
+  public year: number;
 }
 
 const Book = getModelForClass(BookClass);

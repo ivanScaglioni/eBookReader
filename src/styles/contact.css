@@ -1,12 +1,30 @@
-.footer-bullet{
-    width: 100%;
-    height: 200px;
-    background-image: url('../../public/assests/bullet/pngegg\ \(3\).png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: repeat-x;
-    
-   
-   
-    
+.footer-bullet {
+  width: 100%;
+  height: 100px;
+  background-image: url("../../public/assests/bullet/pngegg\ \(3\).png");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: repeat-x;
+}
+
+.map-container {
+  display: flex;
+  width: 70vw;
+  height: 70vh;
+  padding-bottom: 56.25%; /* Proporción 16:9 para el aspect ratio del mapa */
+  position: relative;
+  max-width: 500px;
+  max-height: 500px;
+  min-width: 300px;
+  min-height: 200px;
+
+  overflow: hidden;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
 }

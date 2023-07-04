@@ -28,12 +28,10 @@ export const parseForm = async (
       }
     }
 
-
-      
-    const form =  formidable({
-      multiples:true,
+    const form = formidable({
+      multiples: true,
       maxFiles: 5,
-      maxFileSize: 1024 * 1024 * 200 , // 1mb
+      maxFileSize: 1024 * 1024 * 200, // 1mb
       uploadDir,
       filename: (_name, _ext, part) => {
         const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
@@ -47,21 +45,11 @@ export const parseForm = async (
       //     part.name === "media" && (part.mimetype?.includes("image") || false)
       //   );
       // },
-
-
     });
 
-
-    form.parse(req,  (err, fields, files)=>{
+    form.parse(req, (err, fields, files) => {
       if (err) reject(err);
       else resolve({ fields, files });
     });
-
-
-    
-
   });
-
-
-
 };

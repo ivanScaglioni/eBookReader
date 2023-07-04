@@ -42,10 +42,10 @@ input[type="number"] {
   appearance: textfield; /* Para otros navegadores */
 }
 
-*{
+* {
   scroll-behavior: smooth;
 }
-main{
+main {
   scroll-behavior: smooth;
 }
 
@@ -76,35 +76,45 @@ main{
     rgba(255, 255, 255, 1) 33.33% 66.66%,
     rgba(116, 172, 223, 1) 66.66%
   );
-
-
- 
 }
 
+.title {
+  font-family: Stencil;
+  font-size: 40px;
+  color: #486491;
+}
 
-.shadow{
-  
-background: rgb(0,0,0);
-background: radial-gradient(ellipse , rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-
+.shadow {
+  background: rgb(0, 0, 0);
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 /* .texture {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 5 5'%3E%3Cpath fill='%23fefeff' fill-opacity='0.5' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 } */
-.test{
+.test {
   text-shadow: 0px 0px 10px black, 0px 0px 10px black;
 
   background-color: #000000cb;
-  background: linear-gradient(90deg, rgba(116, 171, 223, 0) 0%, rgba(0, 0, 0, 0.897) 100%), radial-gradient(circle at -20%, rgba(116, 171, 223, 0) 0%, rgba(0, 0, 0, 0.884) 100%);
-
+  background: linear-gradient(
+      90deg,
+      rgba(116, 171, 223, 0) 0%,
+      rgba(0, 0, 0, 0.897) 100%
+    ),
+    radial-gradient(
+      circle at -20%,
+      rgba(116, 171, 223, 0) 0%,
+      rgba(0, 0, 0, 0.884) 100%
+    );
 }
-
-
 
 .fn-fal-logo {
   position: absolute;
- 
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -112,43 +122,28 @@ background: radial-gradient(ellipse , rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
   opacity: 1;
 }
 
-
-
-
 .fn-fal {
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 1;
 }
 
-
-
-
-.navbar{
+.navbar {
   background-color: #192025;
-  
+
   padding-block: 5px;
   box-shadow: 0px 0px 5px black;
- 
 }
 
-.grid-navbar{
+.grid-navbar {
   gap: 3px 0px;
   box-shadow: 0px 0px 5px black;
-
 }
 
-
-
-
-
-.popover{
+.popover {
   background-color: #3c4a5ad5;
- 
+
   box-shadow: 0px 0px 10px rgb(0, 0, 0);
   backdrop-filter: blur(10px);
 }
-
-

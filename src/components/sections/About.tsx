@@ -1,42 +1,165 @@
-import React from "react";
+import React, { TouchEventHandler, useEffect, useRef, useState } from "react";
+
+import pol5 from "../../../public/assests/pol/pol5.jpg";
+
+import pol1 from "../../../public/assests/pol/pol-1.jpg";
+import pol4 from "../../../public/assests/pol/pol-0.jpg";
+
+import Link from "next/link";
+
+
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+} from "@heroicons/react/24/solid";
+
+const points = [
+  <div key={1} className="flex flex-col w-full items-center">
+    <div className=" h-[700px] min-w-[400px]  animation animation-1 rounded-md overflow-hidden">
+      <img className="h-full object-cover" src={pol5.src} alt="" />
+    </div>
+    <div className=" max-w-[400px] w-[100vw] point animation animation-2 text-justify   -translate-y-[150%] p-10 py-20 max-sm:-translate-x-0  -translate-x-20">
+      Nuestros principales objetivos son proporcionar a los funcionarios
+      policiales las técnicas y tácticas operativas necesarias para el
+      cumplimiento efectivo de sus funciones, mejorar su capacidad de respuesta
+      ante situaciones críticas y fomentar un enfoque proactivo hacia la
+      seguridad y la prevención del delito
+    </div>
+  </div>,
+  <div key={2} className="flex flex-col  items-center">
+    <div className="max-h-[700px] w-[500px] animation  animation-4 ">
+      <img
+        className="max-h-[700px] min-h-[700px] w-[400px] rounded-md overflow-hidden object-cover"
+        src={pol4.src}
+        alt=""
+      />
+    </div>
+    <div className=" -translate-y-[125%] max-w-[400px] point animation text-justify animation-3 z-10 p-10 py-20 translate-x-20 max-sm:-translate-x-0">
+      Nuestros programas de capacitación táctica están diseñados para
+      proporcionar a los funcionarios policiales las habilidades prácticas y
+      tácticas necesarias para responder de manera efectiva, minimizar riesgos y
+      proteger vidas. La capacitación constante y la mejora de las capacidades
+      profesionales son esenciales para enfrentar los desafíos en un entorno en
+      constante evolución y asegurar un servicio policial de calidad.
+    </div>
+  </div>,
+
+  <div key={3} className="flex flex-col  items-center">
+    <div className="max-h-[700px] min-h-[700px] w-[400px]  animation animation-5">
+      <img
+        className="max-h-[700px] min-h-[700px] object-cover rounded-md overflow-hidden "
+        src={pol1.src}
+        alt=""
+      />
+    </div>
+    <div className="-translate-y-[185%] max-w-[400px] point text-justify  animation animation-6 z-10 p-10 py-20 -translate-x-20 max-sm:-translate-x-0">
+      En C.A.Tac.Pol, nos regimos por los valores fundamentales de
+      profesionalismo, ética, integridad, respeto y compromiso con el servicio
+      público.
+    </div>
+  </div>,
+];
+
+const lengthPoints = points.length;
 
 function About() {
-  return (
-    <div>
-      <div className="flex">
-        <div className="fal "></div>
-        <div>
-          <div >
-            historia
+  const [i, setI] = useState(0);
+  let startX = 0;
 
+  const handlePoint = (n: number) => {
+    setI((prevIndex) => {
+      let nextIndex = prevIndex + n;
+      if (nextIndex < 0) {
+        nextIndex = lengthPoints - 1;
+      } else if (nextIndex >= lengthPoints) {
+        nextIndex = 0;
+      }
+      return nextIndex;
+    });
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => handlePoint(1), 7000); // Ejecutar cada 2 segundos (2000 ms)
+
+    // Limpieza: detener el intervalo cuando el componente se desmonta
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  function handleTouchStart(event: any) {
+    startX = event.changedTouches[0].clientX;
+  }
+
+  function handleTouchEnd(e: any) {
+    const endX = e.changedTouches[0].clientX;
+
+    const deltaX = endX - startX;
+
+    if (deltaX > 50) {
+      handlePoint(-1);
+    } else if (deltaX < -50) {
+      handlePoint(1);
+    }
+  }
+
+  return (
+    <div className="max-sm:mx-5 my-8">
+      <div className="flex  justify-center">
+        <div className="flex flex-col items-center gap-14 max-w-[800px] w-[100vw]">
+          <div className=" flex flex-col justify-center  max-sm:p-5 max-w-[100vw]">
+            <div className="title self-center">Historia</div>
+            <div className="text-justify">
+              Fundado el 19 de mayo de 1999, nuestro centro se dedica a brindar
+              a los funcionarios policiales las técnicas y tácticas operativas
+              necesarias para el mejor cumplimiento de sus funciones. En
+              C.A.Tac.Pol, creemos firmemente que la capacitación adecuada es
+              fundamental para salvar vidas. Nuestro lema, &#34;Capacitado para
+              salvar vidas&#34;, resume nuestra filosofía de preparar a los policías
+              para responder de manera efectiva ante situaciones críticas y
+              garantizar la seguridad de la comunidad que servimos. nació con la
+              visión de mejorar la preparación de los funcionarios policiales en
+              el desempeño de sus funciones
+            </div>
           </div>
-          <div>
-            Fundado el 19 de mayo de 1999, nuestro centro se dedica a brindar a
-            los funcionarios policiales las técnicas y tácticas operativas
-            necesarias para el mejor cumplimiento de sus funciones. En
-            C.A.Tac.Pol, creemos firmemente que la capacitación adecuada es
-            fundamental para salvar vidas. Nuestro lema, "Capacitado para salvar
-            vidas", resume nuestra filosofía de preparar a los policías para
-            responder de manera efectiva ante situaciones críticas y garantizar
-            la seguridad de la comunidad que servimos. 
-          </div>
-          <div>
-            Misión
-          </div>
-          <div>
-          Nuestro objetivo es
-            promover un entorno de aprendizaje seguro y colaborativo, donde los
-            funcionarios policiales adquieran habilidades sólidas, mejoren su
-            capacidad de toma de decisiones y fortalezcan su trabajo en equipo.
+          <div className="flex flex-col">
+            <div className="title self-center">Misión</div>
+            <div className="flex w-full items-center">
+              <div
+                className="flex items-center w-10 max-sm:hidden h-full z-40"
+                onClick={() => handlePoint(-1)}
+              >
+                <ChevronDoubleLeftIcon
+                  className="mx-auto w-[250px] text-gray-300 dark:text-black-50 "
+                  aria-hidden="true"
+                />
+              </div>
+              <div
+                className="flex w-[100vw] max-w-[800px] overflow-hidden  justify-center min-h-[700px] max-h-[700px]"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <div className=" w-full ">{points[i]}</div>
+              </div>
+              <div
+                className="flex items-center w-10 max-sm:hidden h-full z-40"
+                onClick={() => handlePoint(1)}
+              >
+                <ChevronDoubleRightIcon
+                  className="mx-auto w-[250px] text-gray-300 dark:text-black-50 "
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex">
-        <div>
-          <div>Recursos</div>
+      <div className="flex items-center gap-10 my-14">
+        <div className="flex flex-col  items-center">
+          <div className="title">Recursos</div>
 
-          <div id="about">
+          <div className="text-justify">
             En C.A.Tac.Pol Valoramos la importancia de compartir el conocimiento
             y estamos comprometidos a proporcionar recursos que impulsen el
             crecimiento profesional de nuestros estudiantes. Biblioteca Virtual:
@@ -48,9 +171,15 @@ function About() {
             seleccionada para proporcionar a los agentes de seguridad un recurso
             confiable y de calidad.
           </div>
+
+          <div>
+            <Link href={"/libros"}>
+              Ir a la bibliocteca Virtual de C.A.Tac.Pol.
+            </Link>
+          </div>
         </div>
 
-        <div className="body"></div>
+        <div className="body max-sm:hidden"></div>
       </div>
     </div>
   );

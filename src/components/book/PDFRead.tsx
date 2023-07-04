@@ -1,73 +1,76 @@
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import "react-pdf/dist/esm/Page/TextLayer.css";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import React, { useState, useEffect, useRef } from "react";
-import { Document, Page, pdfjs,  } from "react-pdf";
+import { Document, Page, pdfjs } from "react-pdf";
 import useBookStore from "@/store/bookStore";
+import { trpc } from "@/utils/trpc";
 
-
+import { useRouter } from "next/router";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
 
 interface Props {
   url: string;
 }
 
+const PDFRead = () => {
+  const [slug, setSlug] = useState<string>("");
 
-const PDFRead = ({url}:Props) => {
+  useEffect(() => {
+    const asPath = window.location.href;
+    const params = asPath.split("/");
+    const lastParam = params[params.length - 1];
+    setSlug(lastParam);
+  }, []);
 
- 
-  const { zoom, totalPages ,setTotalPages, setPage,currentPage } = useBookStore();
-
+  const { zoom, totalPages, setTotalPages, setPage, currentPage } =
+    useBookStore();
   const pdfRef = useRef<HTMLDivElement>(null);
 
+  console.log("bug");
+  const { data, isLoading, isError } = trpc.bookQuerys.getBookUrl.useQuery({
+    slug: slug,
+  });
+  if (isLoading) if (isError) return <div></div>;
+  if (!data) return <div></div>;
+
   const handleDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
-    setTotalPages(numPages)
+    setTotalPages(numPages);
   };
 
   const handleScroll = () => {
-    const pageElement = document.getElementById('1');
-    if ( !pdfRef.current || !pageElement) return;
+    const pageElement = document.getElementById("1");
+    if (!pdfRef.current || !pageElement) return;
     const { scrollTop } = pdfRef.current;
-    const num = Math.ceil((scrollTop / pageElement.clientHeight) ) || 1;
+    const num = Math.ceil(scrollTop / pageElement.clientHeight) || 1;
     //if (num === currentPage) return;
-    const pageX = document.getElementById(`${num + 1}`)
+    const pageX = document.getElementById(`${num + 1}`);
     if (!pageX) return;
-    const rect = pageX.getBoundingClientRect()
-    if (rect.top < window.innerHeight / 2){
-      
+    const rect = pageX.getBoundingClientRect();
+    if (rect.top < window.innerHeight / 2) {
       setPage(num + 1);
-
-    }else{
-      setPage(num)
+    } else {
+      setPage(num);
     }
-    
-    
   };
 
   return (
-    <div className="pdfViewer  flex justify-center max-h-[100vh] overflow-auto" onScroll={handleScroll} ref={pdfRef}>
-  
-      <Document file={url} onLoadSuccess={handleDocumentLoadSuccess} >
+    <div
+      className="pdfViewer  flex justify-center max-h-[100vh] overflow-auto"
+      onScroll={handleScroll}
+      ref={pdfRef}
+    >
+      <Document file={data} onLoadSuccess={handleDocumentLoadSuccess}>
         {Array.from(new Array(totalPages), (_, index) => (
-
-          <React.Fragment key={`page_${index + 1}`} >
- 
-            <div   id={`${index + 1}`} className='pb-5'>
-              <Page  pageNumber={index + 1} scale={zoom} />
+          <React.Fragment key={`page_${index + 1}`}>
+            <div id={`${index + 1}`} className="pb-5">
+              <Page pageNumber={index + 1} scale={zoom} />
             </div>
-          </ React.Fragment>
-
+          </React.Fragment>
         ))}
       </Document>
-
-      
     </div>
   );
 };
 
-
-
-
 export default PDFRead;
-

@@ -20,7 +20,7 @@ interface ValidBook {
     public_id: string;
   };
   pages: number;
-  year:number;
+  year: number;
   key: string;
 }
 
@@ -37,7 +37,7 @@ const Schema = z.object({
   author: z.string().min(1),
   description: z.string(),
   pages: z.number().min(-1),
-  year:z.number()
+  year: z.number(),
 });
 
 type FormData = z.TypeOf<typeof Schema>;
@@ -124,7 +124,7 @@ export default function NewBookForm() {
     defaultValues: {
       pages: 1,
       year: new Date().getFullYear(),
-      author:'C.A.Tac.Pol.'
+      author: "C.A.Tac.Pol.",
     },
   });
 
@@ -170,10 +170,20 @@ export default function NewBookForm() {
     addBook.mutate(newBook, {
       onSuccess: () => {
         console.log("guardado");
-        toast.update(id, { autoClose:5000, render: "product saved successfully", type: "success", isLoading: false });
+        toast.update(id, {
+          autoClose: 5000,
+          render: "product saved successfully",
+          type: "success",
+          isLoading: false,
+        });
       },
       onError(err) {
-        toast.update(id, { autoClose:5000, render: "Error", type: "error", isLoading: false });
+        toast.update(id, {
+          autoClose: 5000,
+          render: "Error",
+          type: "error",
+          isLoading: false,
+        });
       },
     });
   };
@@ -309,7 +319,7 @@ export default function NewBookForm() {
                     )}
                   </div>
                 </div>
-                <div className="overflow-auto" >{namePDF}</div>
+                <div className="overflow-auto">{namePDF}</div>
               </div>
 
               <div className="sm:col-span-4 sm:col-start-1  col-span-full">

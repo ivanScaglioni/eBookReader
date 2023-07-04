@@ -8,6 +8,8 @@ import Welcome from "@/components/sections/Welcome";
 import Contact from "@/components/sections/Contact";
 import About from "@/components/sections/About";
 import War from "@/components/ux/War";
+import Loading from "@/components/ux/Loading";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   return (
@@ -19,33 +21,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <main >
-
-
+        <main>
           <div className="flex  z-50">
-              <div className=" w-screen z-30">
-
+            <div className=" w-screen z-30">
               <Catacpol />
-              </div>
-
-         
+            </div>
           </div>
 
-    
-
-          <div className="section z-30 justify-center  flex gap-6 w-full ">
-            <div className="max-w-[800px] z-30 flex flex-col  gap-6">
+          <div className="mt-20  z-30 justify-center  flex gap-6  ">
+            <div className="max-w-[900px] w-[100vw] z-30 flex flex-col  gap-6">
               <Welcome />
               <About />
-
-       
-  
-            </div>
-
-          </div>
-          
               <Contact />
-
+            </div>
+          </div>
 
           <War />
         </main>

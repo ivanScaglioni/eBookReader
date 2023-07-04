@@ -1,18 +1,16 @@
-import React from 'react'
+import React from "react";
 
-import BookList from '@/components/book/BookList'
+import BookList from "@/components/book/BookList";
 
-import Layout from '@/layout/Layout'
-
+import Layout from "@/layout/Layout";
 
 function Libros() {
+  console.log("pagina list");
   return (
     <Layout>
-
-    <BookList />
-
+      <BookList />
     </Layout>
-  )
+  );
 }
 
-export default Libros
+export default Libros;
