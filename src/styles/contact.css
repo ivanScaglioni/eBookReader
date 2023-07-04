@@ -13,8 +13,8 @@
   height: 70vh;
   padding-bottom: 56.25%; /* Proporción 16:9 para el aspect ratio del mapa */
   position: relative;
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 350px;
+  max-height: 350px;
   min-width: 300px;
   min-height: 200px;
 

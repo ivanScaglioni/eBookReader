@@ -79,9 +79,8 @@ function About() {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(() => handlePoint(1), 7000); // Ejecutar cada 2 segundos (2000 ms)
-
-    // Limpieza: detener el intervalo cuando el componente se desmonta
+    const intervalId = setInterval(() => handlePoint(1), 10000); 
+    
     return () => {
       clearInterval(intervalId);
     };
@@ -108,18 +107,17 @@ function About() {
       <div className="flex  justify-center">
         <div className="flex flex-col items-center gap-14 max-w-[800px] w-[100vw]">
           <div className=" flex flex-col justify-center  max-sm:p-5 max-w-[100vw]">
-            <div className="title self-center">Historia</div>
+            <div className="title self-center">Inicio</div>
             <div className="text-justify">
               Fundado el 19 de mayo de 1999, nuestro centro se dedica a brindar
               a los funcionarios policiales las técnicas y tácticas operativas
               necesarias para el mejor cumplimiento de sus funciones. En
               C.A.Tac.Pol, creemos firmemente que la capacitación adecuada es
-              fundamental para salvar vidas. Nuestro lema, &#34;Capacitado para
-              salvar vidas&#34;, resume nuestra filosofía de preparar a los policías
+              fundamental para salvar vidas. &#34;La victoria favorece a los que se preparan&#34;, resume nuestra filosofía de preparar a los policías
               para responder de manera efectiva ante situaciones críticas y
-              garantizar la seguridad de la comunidad que servimos. nació con la
+              garantizar la seguridad de la comunidad que servimos. Nació con la
               visión de mejorar la preparación de los funcionarios policiales en
-              el desempeño de sus funciones
+              el desempeño de sus funciones con acciones permanentes desde el año 1999 hasta la actualidad
             </div>
           </div>
           <div className="flex flex-col">
@@ -161,8 +159,8 @@ function About() {
 
           <div className="text-justify">
             En C.A.Tac.Pol Valoramos la importancia de compartir el conocimiento
-            y estamos comprometidos a proporcionar recursos que impulsen el
-            crecimiento profesional de nuestros estudiantes. Biblioteca Virtual:
+            y estamos comprometidos en proporcionar recursos que impulsen el
+            crecimiento profesional de nuestros policias.La primer biblioteca táctica virtual:
             Nuestra biblioteca cuenta con una variedad de títulos escritos por
             expertos en el campo de la seguridad y la aplicación de la ley.
             Estos libros abarcan una amplia gama de temas como: tácticas y

@@ -9,8 +9,8 @@ function Catacpol() {
       >
         <div className="flex h-screen items-center flex-col z-30  text-sky-200">
           <div className="flex  items-center justify-end gap-4 h-1/3 flex-col catacpol ">
-            <div className="text-5xl font-[Railway]">C.A.Tac.Pol</div>
-            <div className=" font-[Stencil] pb-4 text-3xl text-justify">
+            <div className="text-5xl max-sm:text-3xl font-[Railway]">C.A.Tac.Pol</div>
+            <div className=" font-[Stencil] pb-4 max-sm:text-xl text-3xl text-justify">
               Centro de adiestramiento tactico policial
             </div>
           </div>
@@ -18,7 +18,7 @@ function Catacpol() {
           <div className="h-1/3"></div>
 
           <div className="h-1/3 font-[Stencil] text-3xl lema pt-4">
-            Capacitado para salvar vidas
+
           </div>
         </div>
 

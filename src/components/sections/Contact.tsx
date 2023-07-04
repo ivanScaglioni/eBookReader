@@ -6,21 +6,21 @@ export default function Contact() {
   return (
     <>
       <div className="w-full  overflow-hidden">
-        <div className="flex flex-wrap-reverse justify-around">
+        <div className="flex  gap-5 flex-wrap-reverse justify-around">
           <div>
             <EmbeddedMap />
           </div>
           <div className="flex flex-col items-center  w-[300px]">
             <div className="title">Contacto</div>
             <div id="contact" className="text-justify">
-              Si deseas obtener más información sobre nuestros cursos, adquirir
-              nuestros libros especializados o simplemente tienes alguna
-              pregunta, no dudes en ponerte en contacto con nosotros. Nuestro
-              equipo de profesionales capacitados está listo para brindarte toda
-              la información que necesites. Puedes comunicarte con nosotros a
-              través de los siguientes medios: Dirección: Calle Principal,
-              Ciudad de Mendoza, Argentina Teléfono: +54 123456789 Correo
-              electrónico: info@catacpolmendoza.com
+              <p>
+
+              Si deseas obtener más información sobre la biblioteca táctica digital escibir a:
+              </p>
+              <p className="text-sky-400">
+
+               bibliotecadigitalcatacpol@gmail.com
+              </p>
             </div>
           </div>
         </div>
