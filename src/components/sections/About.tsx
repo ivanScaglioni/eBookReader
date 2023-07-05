@@ -108,7 +108,7 @@ function About() {
         <div className="flex flex-col items-center gap-14 max-w-[800px] w-[100vw]">
           <div className=" flex flex-col justify-center  max-sm:p-5 max-w-[100vw]">
             <div className="title self-center">Inicio</div>
-            <div className="text-justify">
+            <div className="text-justify max-sm:text-sm">
               Fundado el 19 de mayo de 1999, nuestro centro se dedica a brindar
               a los funcionarios policiales las técnicas y tácticas operativas
               necesarias para el mejor cumplimiento de sus funciones. En
@@ -157,7 +157,7 @@ function About() {
         <div className="flex flex-col  items-center">
           <div className="title">Recursos</div>
 
-          <div className="text-justify">
+          <div className="text-justify max-sm:text-sm">
             En C.A.Tac.Pol Valoramos la importancia de compartir el conocimiento
             y estamos comprometidos en proporcionar recursos que impulsen el
             crecimiento profesional de nuestros policias.La primer biblioteca táctica virtual:
@@ -170,7 +170,7 @@ function About() {
             confiable y de calidad.
           </div>
 
-          <div className="mt-6 text-xl text-center text-sky-400">
+          <div className="mt-6 text-xl text-center max-sm:text-base text-sky-400">
             <Link href={"/libros"}>
               Ir a la bibliocteca virtual de C.A.Tac.Pol.
             </Link>

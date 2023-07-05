@@ -12,7 +12,7 @@ export default function Contact() {
           </div>
           <div className="flex flex-col items-center  w-[300px]">
             <div className="title">Contacto</div>
-            <div id="contact" className="text-justify">
+            <div id="contact" className="text-justify max-sm:text-sm">
               <p>
 
               Si deseas obtener más información sobre la biblioteca táctica digital escibir a:

@@ -80,8 +80,9 @@ main {
 
 .title {
   font-family: Stencil;
-  font-size: 40px;
+  font-size: 3rem;
   color: #486491;
+  margin-bottom: 15px;
 }
 
 .shadow {
