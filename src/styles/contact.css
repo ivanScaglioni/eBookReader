@@ -14,11 +14,13 @@
   padding-bottom: 56.25%; /* Proporción 16:9 para el aspect ratio del mapa */
   position: relative;
   max-width: 350px;
-  max-height: 350px;
+  max-height: 250px;
   min-width: 300px;
   min-height: 200px;
 
   overflow: hidden;
+  border-radius: 5px;
+ 
 }
 
 .map-container iframe {

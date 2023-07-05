@@ -18,7 +18,7 @@ const points = [
     <div className=" h-[700px] min-w-[400px]  animation animation-1 rounded-md overflow-hidden">
       <img className="h-full object-cover" src={pol5.src} alt="" />
     </div>
-    <div className=" max-w-[400px] w-[100vw] point animation animation-2 text-justify   -translate-y-[150%] p-10 py-20 max-sm:-translate-x-0  -translate-x-20">
+    <div className=" max-w-[400px] font-semibold w-[100vw] point animation animation-2 text-justify   -translate-y-[150%] p-10 py-20 max-sm:-translate-x-0  -translate-x-20">
       Nuestros principales objetivos son proporcionar a los funcionarios
       policiales las técnicas y tácticas operativas necesarias para el
       cumplimiento efectivo de sus funciones, mejorar su capacidad de respuesta
@@ -34,7 +34,7 @@ const points = [
         alt=""
       />
     </div>
-    <div className=" -translate-y-[125%] max-w-[400px] point animation text-justify animation-3 z-10 p-10 py-20 translate-x-20 max-sm:-translate-x-0">
+    <div className=" -translate-y-[125%] font-semibold max-w-[400px] point animation text-justify animation-3 z-10 p-10 py-20 translate-x-20 max-sm:-translate-x-0">
       Nuestros programas de capacitación táctica están diseñados para
       proporcionar a los funcionarios policiales las habilidades prácticas y
       tácticas necesarias para responder de manera efectiva, minimizar riesgos y
@@ -52,7 +52,7 @@ const points = [
         alt=""
       />
     </div>
-    <div className="-translate-y-[185%] max-w-[400px] point text-justify  animation animation-6 z-10 p-10 py-20 -translate-x-20 max-sm:-translate-x-0">
+    <div className="-translate-y-[185%] font-semibold max-w-[400px] point text-center  animation animation-6 z-10 p-10 py-20 -translate-x-20 max-sm:-translate-x-0">
       En C.A.Tac.Pol, nos regimos por los valores fundamentales de
       profesionalismo, ética, integridad, respeto y compromiso con el servicio
       público.
@@ -170,9 +170,9 @@ function About() {
             confiable y de calidad.
           </div>
 
-          <div>
+          <div className="mt-6 text-xl text-center text-sky-400">
             <Link href={"/libros"}>
-              Ir a la bibliocteca Virtual de C.A.Tac.Pol.
+              Ir a la bibliocteca virtual de C.A.Tac.Pol.
             </Link>
           </div>
         </div>

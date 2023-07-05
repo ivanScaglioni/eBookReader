@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <>
       <div className="w-full  overflow-hidden">
-        <div className="flex  gap-5 flex-wrap-reverse justify-around">
+        <div className="flex  gap-5 flex-wrap-reverse justify-center">
           <div>
             <EmbeddedMap />
           </div>
@@ -17,7 +17,7 @@ export default function Contact() {
 
               Si deseas obtener más información sobre la biblioteca táctica digital escibir a:
               </p>
-              <p className="text-sky-400">
+              <p className="text-sky-400  m-3">
 
                bibliotecadigitalcatacpol@gmail.com
               </p>
