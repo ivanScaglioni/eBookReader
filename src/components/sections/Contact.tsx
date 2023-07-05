@@ -10,7 +10,7 @@ export default function Contact() {
           <div>
             <EmbeddedMap />
           </div>
-          <div className="flex flex-col items-center  w-[300px]">
+          <div className="flex flex-col items-center  w-[300px]  max-sm:w-[100%] max-sm:px-5">
             <div className="title">Contacto</div>
             <div id="contact" className="text-justify max-sm:text-sm">
               <p>
