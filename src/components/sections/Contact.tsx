@@ -17,7 +17,7 @@ export default function Contact() {
 
               Si deseas obtener más información sobre la biblioteca táctica digital escibir a:
               </p>
-              <p className="text-sky-400  m-3">
+              <p className="text-sky-400  text-center mt-3">
 
                bibliotecadigitalcatacpol@gmail.com
               </p>
