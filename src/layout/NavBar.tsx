@@ -21,25 +21,25 @@ import Link from "next/link";
 const solutions = [
   {
     name: "Inicio",
-    description: "pagina principal",
+    description: "página principal",
     href: "/",
     icon: FlagIcon,
   },
   {
     name: "Nosotros",
-    description: "información sobre C.A.Tac.Ṕol ",
+    description: "información sobre C.A.Tac.Pol ",
     href: "/#about",
     icon: InformationCircleIcon,
   },
   {
     name: "Biblioteca",
-    description: "libros",
+    description: "biblioteca táctica virtual C.A.Tac.Pol",
     href: "/libros",
     icon: BookOpenIcon,
   },
   {
     name: "Contacto",
-    description: "puedes enviar tus consultas a esta dirreccion",
+    description: "puedes enviar tus consultas a este correo",
     href: "/#contact",
     icon: AtSymbolIcon,
   },
@@ -72,56 +72,6 @@ export default function NavBar() {
 
   return (
     <>
-      {/* <div className="z-50   fixed">
-        <div
-          ref={menu}
-          className="menu  w-screen fixed flex justify-center flex-col items-center  overflow-hidden top-0 "
-        >
-          <div className=" h-full w-full  flex flex-col items-center max-w-5xl ">
-            <Link href="#hola" ></Link>
-            <Link href="#hola" > hola</Link>
-            <Link href="#hola" > hola</Link>
-            <Link href="#hola" > hola</Link>
-  
-
-          </div>
-        </div>
-        <div className="w-screen  flex justify-center">
-          <div className="w-screen  max-w-[1000px] flex justify-end ">
-            <div
-              className="w-10  h-6 mr-3  z-50 "
-              onClick={handleMenu}
-
-              
-            >
-              <div className="grid  grid-navbar w-full h-full grid-cols-5 grid-rows-3">
-
-                <div className="col-span-5 border  bg-sky-300">
-                  
-                </div>
-
-                <div className="col-span-2   bg-white-50">
-                  
-                </div>
-
-                <div className="col-span-1  bg-yellow-400">
-                  
-                </div>
-
-                <div className="  col-span-2   bg-white-50">
-                  
-                </div>
-                <div className="col-span-5   border bg-sky-300">
-                  
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <Popover className="fixed z-50 w-full flex navbar justify-center ">
         <Popover.Button className="inline-flex items-center text-sm font-semibold bg-slate-50  text-gray-900">
           <div className="w-10  h-6   z-50 " onClick={handleMenu}>

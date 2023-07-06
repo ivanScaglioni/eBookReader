@@ -7,7 +7,6 @@ import pol4 from "../../../public/assests/pol/pol-0.jpg";
 
 import Link from "next/link";
 
-
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
@@ -79,8 +78,8 @@ function About() {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(() => handlePoint(1), 10000); 
-    
+    const intervalId = setInterval(() => handlePoint(1), 10000);
+
     return () => {
       clearInterval(intervalId);
     };
@@ -113,11 +112,13 @@ function About() {
               a los funcionarios policiales las técnicas y tácticas operativas
               necesarias para el mejor cumplimiento de sus funciones. En
               C.A.Tac.Pol, creemos firmemente que la capacitación adecuada es
-              fundamental para salvar vidas. &#34;La victoria favorece a los que se preparan&#34;, resume nuestra filosofía de preparar a los policías
-              para responder de manera efectiva ante situaciones críticas y
-              garantizar la seguridad de la comunidad que servimos. Nació con la
-              visión de mejorar la preparación de los funcionarios policiales en
-              el desempeño de sus funciones con acciones permanentes desde el año 1999 hasta la actualidad
+              fundamental para salvar vidas. &#34;La victoria favorece a los que
+              se preparan&#34;, resume nuestra filosofía de preparar a los
+              policías para responder de manera efectiva ante situaciones
+              críticas y garantizar la seguridad de la comunidad que servimos.
+              Nació con la visión de mejorar la preparación de los funcionarios
+              policiales en el desempeño de sus funciones con acciones
+              permanentes desde el año 1999 hasta la actualidad
             </div>
           </div>
           <div className="flex flex-col">
@@ -160,14 +161,14 @@ function About() {
           <div className="text-justify max-sm:text-sm">
             En C.A.Tac.Pol Valoramos la importancia de compartir el conocimiento
             y estamos comprometidos en proporcionar recursos que impulsen el
-            crecimiento profesional de nuestros policias.La primer biblioteca táctica virtual:
-            Nuestra biblioteca cuenta con una variedad de títulos escritos por
-            expertos en el campo de la seguridad y la aplicación de la ley.
-            Estos libros abarcan una amplia gama de temas como: tácticas y
-            técnicas policiales, estrategias de combate, mantenimiento y
-            cudidado de equipamiento. Cada obra ha sido cuidadosamente
-            seleccionada para proporcionar a los agentes de seguridad un recurso
-            confiable y de calidad.
+            crecimiento profesional de nuestros policías. La primer biblioteca
+            táctica virtual: Nuestra biblioteca cuenta con una variedad de
+            títulos escritos por expertos en el campo de la seguridad y la
+            aplicación de la ley. Estos libros abarcan una amplia gama de temas
+            como: tácticas y técnicas policiales, estrategias de combate,
+            mantenimiento y cuidado de equipamiento. Cada obra ha sido
+            cuidadosamente seleccionada para proporcionar a los agentes de
+            seguridad un recurso confiable y de calidad.
           </div>
 
           <div className="mt-6 text-xl text-center max-sm:text-base text-sky-400">

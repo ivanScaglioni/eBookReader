@@ -14,12 +14,11 @@ export default function Contact() {
             <div className="title">Contacto</div>
             <div id="contact" className="text-justify max-sm:text-sm">
               <p>
-
-              Si deseas obtener más información sobre la biblioteca táctica digital escibir a:
+                Si deseas obtener más información sobre la biblioteca táctica
+                digital escribir a:
               </p>
               <p className="text-sky-400  text-center mt-3">
-
-               bibliotecadigitalcatacpol@gmail.com
+                bibliotecadigitalcatacpol@gmail.com
               </p>
             </div>
           </div>
