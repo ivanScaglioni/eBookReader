@@ -7,7 +7,7 @@ export default function New() {
   return (
     <div>
       <Layout>
-      <NewBookForm />
+        <NewBookForm />
 
       </Layout>
 

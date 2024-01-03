@@ -53,7 +53,7 @@ const handleFileUpload = async (req: NextApiRequest, res: NextApiResponse<Data>)
       const file = files.media;
       let uploadsFiles = Array.isArray(file) ? file.map((f) => ({fileName:f.originalFilename ,urlPath:f.filepath, fileType:f.mimetype})):  [{fileName:file.originalFilename, urlPath:file.filepath, fileType:file.mimetype}] ;
     
-      //codigo para enviar la protada del libro a cloudinary y el libro a s3 va aqui
+      //codigo para enviar la protada del libro a cloudinary y el libro a s3 
       for (let index = 0; index < uploadsFiles.length; index++) {
         const auxType = uploadsFiles[index].fileType
         const auxPath = uploadsFiles[index].urlPath
