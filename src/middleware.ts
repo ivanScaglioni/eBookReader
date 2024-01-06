@@ -4,7 +4,7 @@ import { jwtVerify } from 'jose';
 
 
 
- 
+
 // This function can be marked `async` if using `await` inside
 export async function middleware(req: NextRequest) {
 
@@ -12,10 +12,10 @@ export async function middleware(req: NextRequest) {
 
   console.log(jwt)
 
-  if ( jwt === undefined ) {
-    
+  if (jwt === undefined) {
+
     return NextResponse.redirect(new URL('/login', req.url))
-  }else{
+  } else {
 
     try {
       const encoder = new TextEncoder();
@@ -26,11 +26,11 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL('/login', req.url))
     }
 
-  }  
+  }
 
 
 }
- 
+
 // See "Matching Paths" below to learn more
 export const config = {
   matcher: '/admin/:path*',

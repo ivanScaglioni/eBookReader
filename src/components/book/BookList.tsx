@@ -6,7 +6,7 @@ import { BookType } from "@/types/bookTypes";
 
 import Error from "../ux/Error";
 
-import Modal from "../ux/Modal";
+
 
 export default function BookList() {
   const { data, isLoading, isError } = trpc.bookQuerys.get.useQuery();
@@ -18,7 +18,7 @@ export default function BookList() {
     <div>
       {data && (
         <>
-          
+
 
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 ">
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

@@ -31,20 +31,20 @@ export default function War() {
     bulletElement.style.left = `${left}px`;
     bulletElement.style.animationDelay = `${Math.floor(
       Math.random() * (bulletStats.delay.max - bulletStats.delay.min + 1) +
-        bulletStats.delay.min
+      bulletStats.delay.min
     )}s`;
     bulletElement.style.width = `${Math.floor(
       Math.random() * (bulletStats.size.max - bulletStats.size.min + 1) +
-        bulletStats.size.min
+      bulletStats.size.min
     )}px`;
     bulletElement.style.height = `${Math.floor(
       Math.random() * (bulletStats.size.max - bulletStats.size.min + 1) +
-        bulletStats.size.min
+      bulletStats.size.min
     )}px`;
     bulletElement.style.animationDuration = `${Math.floor(
       Math.random() *
-        (bulletStats.duration.max - bulletStats.duration.min + 1) +
-        bulletStats.duration.min
+      (bulletStats.duration.max - bulletStats.duration.min + 1) +
+      bulletStats.duration.min
     )}s`;
     bulletElement.addEventListener("animationend", () => {
       parent.removeChild(bulletElement);
@@ -53,7 +53,7 @@ export default function War() {
   };
 
   const mainFunction = () => {
-    //console.log('Shot');
+
     const parent = parentElementRef.current;
     if (!parent) return;
 
@@ -62,7 +62,7 @@ export default function War() {
 
     for (let index = 0; index < parent.childNodes.length; index++) {
       const bulletElement = parent.childNodes[index];
-      //console.log(bulletElement)
+
     }
   };
 

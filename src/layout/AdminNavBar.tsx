@@ -2,14 +2,14 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 
-import { useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 const navigation = [
   { name: 'Administración', href: '/admin', current: false },
   { name: 'Libros', href: '/admin/books', current: false },
 ]
 
-function classNames(...classes:any[]) {
+function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -17,15 +17,15 @@ export default function AdminNavbar() {
 
   const router = useRouter();
 
-  const signOut = async()=>{
+  const signOut = async () => {
 
-    const res = await fetch('api/auth',{method:'DELETE'})
-      if(res.status == 200){
-          router.push('/')
-      }else{
-        
-         console.log(res)
-      }
+    const res = await fetch('api/auth', { method: 'DELETE' })
+    if (res.status == 200) {
+      router.push('/')
+    } else {
+
+      console.log(res)
+    }
   }
 
 
@@ -49,7 +49,7 @@ export default function AdminNavbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center font-[Railway]" >
-                    C.A.Tac.Pol
+                  C.A.Tac.Pol
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -70,7 +70,7 @@ export default function AdminNavbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              
+
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -80,10 +80,10 @@ export default function AdminNavbar() {
                       <span className="sr-only">Open user menu</span>
 
 
-                      <UserCircleIcon className="h-8 w-8 text-sky-400 rounded-full"></UserCircleIcon> 
+                      <UserCircleIcon className="h-8 w-8 text-sky-400 rounded-full"></UserCircleIcon>
                       <div className='self-center' >
                         Admin
-                        </div>
+                      </div>
                     </Menu.Button>
                   </div>
                   <Transition
@@ -99,7 +99,7 @@ export default function AdminNavbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <button
-                       
+
                             className={classNames(active ? 'bg-gray-700' : '', 'w-full text-left block px-4 py-2 text-sm')}
                             onClick={signOut}
                           >

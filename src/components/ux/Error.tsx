@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Link from 'next/link'
 
 
 export default function Error() {
@@ -33,10 +33,10 @@ export default function Error() {
           <div className=" sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-lg leading-6 text-gray-300 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               hubo un error lo sentimos, intente más trade.{' '}
-              <a href="/" className="font-semibold text-sky-300">
+              <Link href="/" className="font-semibold text-sky-300">
                 <span className="absolute inset-0"  />
                 Volver a C.A.Tac.Pol <span >&rarr;</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

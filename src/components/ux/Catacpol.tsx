@@ -12,9 +12,6 @@ function Catacpol() {
             <div className="text-5xl max-sm:text-4xl mb-4 font-[Railway]">
               C.A.Tac.Pol
             </div>
-            {/* <div className=" font-[Stencil] pb-4 max-sm:text-2xl text-3xl text-justify">
-              Centro de Adiestramiento Tactico Policial
-            </div> */}
           </div>
 
           <div className="h-1/3"></div>

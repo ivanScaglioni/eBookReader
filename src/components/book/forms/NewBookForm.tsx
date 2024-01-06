@@ -129,7 +129,7 @@ export default function NewBookForm() {
   });
 
   const onSubmit = async (data: FormData) => {
-    
+
     const id = toast.loading("Please wait...");
     let book: Book = {
       picture: {
@@ -205,7 +205,7 @@ export default function NewBookForm() {
                   Portada
                 </label>
                 <p className="text-xs leading-5 text-gray-600 dark:text-gray-300">
-                  PNG, JPG 
+                  PNG, JPG
                 </p>
                 <div className="flex w-full justify-center  border border-dashed border-gray-900/25  dark:border-gray-500">
                   <div className="  self-center  justify-self-center overflow-hidden flex justify-center items-center min-h-[400px] rounded-sm  ">

@@ -7,7 +7,7 @@ import { verifyJWT } from "@/safety/JWT";
 // @see https://trpc.io/docs/api-handler
 
 
-const myContext = async ({req , res}:trpcNext.CreateNextContextOptions ) => {
+const myContext = async ({ req, res }: trpcNext.CreateNextContextOptions) => {
   async function isAuth() {
     if (req.headers.cookie) {
       const user = await verifyJWT(

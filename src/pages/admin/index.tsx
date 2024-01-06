@@ -20,7 +20,7 @@ export default function admin() {
 
     <AdminLayout>
       <div>
-        <BooksDashboard/>
+        <BooksDashboard />
 
       </div>
 

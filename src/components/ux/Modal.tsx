@@ -5,50 +5,50 @@ import { BookType } from '@/types/bookTypes'
 import { trpc } from '@/utils/trpc'
 import { toast } from "react-toastify";
 
-export default function Modal({msg,  open, setOpen, book} : {msg:string, open:boolean, setOpen:Function, book:BookType | undefined}) {
+export default function Modal({ msg, open, setOpen, book }: { msg: string, open: boolean, setOpen: Function, book: BookType | undefined }) {
 
   const cancelButtonRef = useRef(null)
   const deleteBook = trpc.bookQuerys.deleteBySlug.useMutation();
 
 
-  const handleAccept = ()=>{
+  const handleAccept = () => {
     const id = toast.loading("please wait...");
 
     setOpen(false)
-    if(!book){
-        toast.update(id, {
-            autoClose: 5000,
-            render: "Error",
-            type: "error",
-            isLoading: false,
-          });
-        return
-    } 
-   deleteBook.mutate(book.slug, {
-        onSuccess: () => {
- 
-          toast.update(id, {
-            autoClose: 5000,
-            render: "Libro eliminado",
-            type: "success",
-            isLoading: false,
-          });
-        },
-        onError(err) {
-          toast.update(id, {
-            autoClose: 5000,
-            render: "Error",
-            type: "error",
-            isLoading: false,
-          });
-        },
+    if (!book) {
+      toast.update(id, {
+        autoClose: 5000,
+        render: "Error",
+        type: "error",
+        isLoading: false,
       });
+      return
+    }
+    deleteBook.mutate(book.slug, {
+      onSuccess: () => {
+
+        toast.update(id, {
+          autoClose: 5000,
+          render: "Libro eliminado",
+          type: "success",
+          isLoading: false,
+        });
+      },
+      onError(err) {
+        toast.update(id, {
+          autoClose: 5000,
+          render: "Error",
+          type: "error",
+          isLoading: false,
+        });
+      },
+    });
 
 
-    
+
   }
 
-  
+
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -84,9 +84,9 @@ export default function Modal({msg,  open, setOpen, book} : {msg:string, open:bo
                     </div>
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h2" className="text-lg font-semibold leading-6 ">
-                            {msg}
+                        {msg}
                       </Dialog.Title>
-                     
+
                     </div>
                   </div>
                 </div>

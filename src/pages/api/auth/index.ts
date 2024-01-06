@@ -6,18 +6,18 @@ import { verifyJWT } from "@/safety/JWT";
 
 
 
-const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
+const handleLogin = async (req: NextApiRequest, res: NextApiResponse) => {
 
 
 
     const { method, body } = req;
 
-    var isLogin : boolean = false
+    var isLogin: boolean = false
 
-    if(req.headers.cookie){
-        
+    if (req.headers.cookie) {
+
         isLogin = await verifyJWT(req.headers.cookie);
-    
+
     }
 
 
@@ -25,7 +25,7 @@ const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
         case "GET":
             if (!isLogin) return res.status(401);
             try {
-                return res.status(200).json({ 'payload':'jwt' })
+                return res.status(200).json({ 'payload': 'jwt' })
             } catch (error) {
                 return res.status(401).json({ msg: "invalid token" });
             }
@@ -61,7 +61,7 @@ const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
             if (!isLogin) return res.status(401).json({ error: 'no token' });
             try {
                 const encoder = new TextEncoder();
-            
+
                 const serialized = serialize('authorization', '0', {
                     httpOnly: true,
                     secure: process.env.NODE_ENV === 'production',
@@ -82,6 +82,6 @@ const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
 }
-    
+
 
 export default handleLogin;

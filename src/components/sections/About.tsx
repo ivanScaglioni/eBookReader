@@ -113,7 +113,7 @@ function About() {
               necesarias para el mejor cumplimiento de sus funciones. En
               C.A.Tac.Pol, creemos firmemente que la capacitación adecuada es
               fundamental para salvar vidas. <span className="font-semibold text-sky-200"> &#34;La victoria favorece a los que
-              se preparan&#34;</span>, resume nuestra filosofía de preparar a los
+                se preparan&#34;</span>, resume nuestra filosofía de preparar a los
               policías para responder de manera efectiva ante situaciones
               críticas y garantizar la seguridad de la comunidad que servimos.
               Nació con la visión de mejorar la preparación de los funcionarios

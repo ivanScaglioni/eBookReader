@@ -1,4 +1,4 @@
-import {ReactNode} from 'react'
+import { ReactNode } from 'react'
 
 import { ToastContainer } from 'react-toastify'
 
@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 import AdminNavbar from './AdminNavBar'
 
-export default function AdminLayout({children}: { children: ReactNode }) {
+export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Head>
@@ -15,24 +15,24 @@ export default function AdminLayout({children}: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AdminNavbar/>
+      <AdminNavbar />
       <main>
-              {children}
-          
-          <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
+        {children}
+
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
         />
-          
-          </main>
+
+      </main>
     </>
   )
 }

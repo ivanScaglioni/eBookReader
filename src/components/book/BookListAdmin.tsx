@@ -1,6 +1,8 @@
-import {useState} from "react";
+import { useState } from "react";
 import { trpc } from "@/utils/trpc";
 import Loading from "../ux/Loading";
+
+import Error from "../ux/Error";
 
 import { BookType } from "@/types/bookTypes";
 
@@ -15,22 +17,23 @@ const msgDelete = 'estas seguro de que que qieres eliminar este libro'
 export default function BookListAdmin() {
     const [open, setOpen] = useState(false)
     const [msgDelete, setMsgDelete] = useState('')
-    const [selectBook, setSelectBook] = useState< BookType>()
-    
-    
-    const handleMsg = (book:BookType)=>{
+    const [selectBook, setSelectBook] = useState<BookType>()
+
+
+    const handleMsg = (book: BookType) => {
         const msgComplete = `¿Estas seguro que deseas eliminar el libro ${book.title}?`
-        setMsgDelete( msgComplete )
+        setMsgDelete(msgComplete)
         setSelectBook(book)
         setOpen(true)
-        
+
     }
 
 
 
     const { data, isLoading, isError } = trpc.bookQuerys.get.useQuery();
-    if (isLoading) if (isError) return <Loading />;
-    if (!data) return <Loading />;
+    if (isLoading) return <Loading />;
+    if (isError) return <Error />;
+    if (!data) return <></>;
 
 
 
@@ -46,7 +49,7 @@ export default function BookListAdmin() {
                     <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 ">
                         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                             {data.map((book: BookType, index: any) => (
-                                
+
 
                                 <div
                                     key={index}
@@ -54,7 +57,7 @@ export default function BookListAdmin() {
                                 >
 
                                     <div className="absolute p-1 z-20">
-                                        <button onClick={()=>{handleMsg(book)}} className=" flex  justify-center  self-center  w-[30px]  bg-red-500 px-2 py-1 items-center text-xs font-medium text-red-100  ring-1 ring-inset ring-red-600/10">
+                                        <button onClick={() => { handleMsg(book) }} className=" flex  justify-center  self-center  w-[30px]  bg-red-500 px-2 py-1 items-center text-xs font-medium text-red-100  ring-1 ring-inset ring-red-600/10">
                                             <TrashIcon width={30} height={30} className="min-h-[30px]  min-w-[30px]" />
 
                                         </button >

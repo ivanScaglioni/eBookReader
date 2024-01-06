@@ -5,7 +5,6 @@ const conn = {
 };
 
 async function connectDB() {
-  console.log("hola");
   if (conn.isConnected) return;
   try {
     mongoose.set("strictQuery", false);

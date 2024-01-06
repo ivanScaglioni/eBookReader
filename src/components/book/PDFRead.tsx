@@ -32,8 +32,8 @@ const PDFRead = () => {
   const { data, isLoading, isError } = trpc.bookQuerys.getBookUrl.useQuery({
     slug: slug,
   });
-  if (isLoading) return <Loading/>;
-  if (isError) return <Error/>
+  if (isLoading) return <Loading />;
+  if (isError) return <Error />
   if (!data) return <></>;
 
   const handleDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {

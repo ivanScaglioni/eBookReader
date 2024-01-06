@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import ThemeSwitch from "./ThemeSwitch";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {

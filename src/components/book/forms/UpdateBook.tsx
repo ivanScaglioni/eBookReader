@@ -26,7 +26,7 @@ interface ValidBook {
     pages: number;
     year: number;
     key: string;
-    currentSlug:string;
+    currentSlug: string;
 }
 
 type Book = {
@@ -51,9 +51,9 @@ const remplaceSpace = (sentence: string) => {
     return sentence.toLowerCase().trim().replace(/\s+/g, "_");
 };
 
-export default function UpdateBookForm({ myBook, url}:{myBook:BookType, url: string}) {
+export default function UpdateBookForm({ myBook, url }: { myBook: BookType, url: string }) {
 
-   
+
     const [srcImages, setSrcImages] = useState<string[]>([]);
     const [validFiles, setValidFiles] = useState<File[]>([]);
     const [selectImage, setSelectImage] = useState<string | null>(null);
@@ -62,10 +62,10 @@ export default function UpdateBookForm({ myBook, url}:{myBook:BookType, url: str
     const [namePDF, setNamePDF] = useState("");
 
 
-    
-    
+
+
     const updateBook = trpc.bookQuerys.update.useMutation();
-    
+
 
 
 
@@ -77,10 +77,10 @@ export default function UpdateBookForm({ myBook, url}:{myBook:BookType, url: str
         resolver: zodResolver(Schema),
         defaultValues: myBook,
     });
-    
+
 
     // const call = async ( url:string)=>{
-            
+
     //     const res = await fetch(url)
     //     const resBlob =  await res.arrayBuffer()
     //     const blob = new Blob([resBlob], { type: 'application/pdf' });
@@ -94,16 +94,16 @@ export default function UpdateBookForm({ myBook, url}:{myBook:BookType, url: str
     // }
 
     // useEffect( () => {
-        
+
 
 
     //     call(url)
     //   return () => {
-      
+
     //   }
     // }, [])
-    
-  
+
+
 
     const handlePDF = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (!event.target.files) return;
@@ -205,7 +205,7 @@ export default function UpdateBookForm({ myBook, url}:{myBook:BookType, url: str
             currentSlug: myBook.slug,
         };
 
-   
+
 
         updateBook.mutate(upBook, {
             onSuccess: () => {
@@ -303,7 +303,7 @@ export default function UpdateBookForm({ myBook, url}:{myBook:BookType, url: str
                                     htmlFor="cover-photo"
                                     className="block text-sm font-medium leading-6"
                                 >
-                                    Libro PDF 
+                                    Libro PDF
                                 </label>
                                 <p className="text-xs leading-5 text-gray-600 dark:text-gray-300">
                                     PDF
