@@ -1,0 +1,23 @@
+#loading {
+  width: 150px;
+  height: 150px;
+  background-image: url("../../public/assests/gun/pngegg\ \(4\).png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation-name: spiner;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+
+  border-radius: 50%;
+  filter: invert(75%);
+}
+
+@keyframes spiner {
+  0% {
+  }
+
+  100% {
+    transform: rotateZ(60deg);
+  }
+}

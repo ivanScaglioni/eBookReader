@@ -1,0 +1,139 @@
+.bullet {
+  width: 500px;
+  height: 340px;
+  background-image: url("../../public/assests/bullet/pngegg\ \(1\).png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fal {
+  min-width: 200px;
+  height: 1000px;
+  background-image: url("../../public/assests/gun/FN-FAL.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation-name: animation-fal;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.body {
+  min-width: 250px;
+  height: 400px;
+  background-image: url("../../public/assests/pngegg\ \(2\).png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.point {
+  background-color: rgba(0, 0, 0, 0.596);
+
+  background-image: url("../../public/assests/camo.jpg");
+  background-position: center;
+  box-shadow: 0px 0px 10px black, 0px 0px 20px black;
+  border-radius: 5px;
+}
+
+.animation {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.animation-1 {
+  animation-name: animation-1;
+}
+
+.animation-3 {
+  animation-name: animation-3;
+}
+
+.animation-4 {
+  animation-name: animation-4;
+}
+.animation-2 {
+  animation-name: animation-2;
+}
+
+.animation-5 {
+  animation-name: animation-5;
+}
+.animation-6 {
+  animation-name: animation-6;
+}
+
+@keyframes animation-fal {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/*  animaciones para los puntos */
+
+@keyframes animation-1 {
+  0% {
+    filter: opacity(0);
+    transform: translateX(-100%);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateX(100px);
+  }
+}
+
+@keyframes animation-2 {
+  0% {
+    filter: opacity(0);
+    transform: translateX(-100%);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@keyframes animation-3 {
+  0% {
+    filter: opacity(0);
+    transform: translateY(-100%);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@keyframes animation-4 {
+  0% {
+    filter: opacity(0);
+    transform: translateX(100%);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@keyframes animation-5 {
+  0% {
+    filter: opacity(0);
+    transform: translateY(-100%);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@keyframes animation-6 {
+  0% {
+    filter: opacity(0);
+    transform: translateX(100%);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}

@@ -11,7 +11,6 @@ const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
 
 
     const { method, body } = req;
-    const {authorization } = req.headers 
 
     var isLogin : boolean = false
 
@@ -24,11 +23,9 @@ const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
 
     switch (method) {
         case "GET":
-            if (!isLogin || !authorization) return res.status(401);
+            if (!isLogin) return res.status(401);
             try {
-                const encoder = new TextEncoder();
-                const jwtData = await jwtVerify(authorization, encoder.encode(process.env.JWT_PRIVATE_KEY))
-                return res.status(200).json({ jwtData })
+                return res.status(200).json({ 'payload':'jwt' })
             } catch (error) {
                 return res.status(401).json({ msg: "invalid token" });
             }
@@ -53,22 +50,18 @@ const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
                 })
 
                 res.setHeader('Set-Cookie', serialized);
-               
-                res.writeHead(302, {
-                Location: '/', // Indica la nueva ruta a la que se redirigirá
-                })
-                res.end();
-                return
+
                 return res.status(200).json('login succesfull');
             } catch (error) {
                 return res.status(401).json({ msg: "invalid password" });
             }
 
         case 'DELETE':
-            if (!isLogin || !authorization) return res.status(401).json({ error: 'no token' });
+
+            if (!isLogin) return res.status(401).json({ error: 'no token' });
             try {
                 const encoder = new TextEncoder();
-                const jwtData = await jwtVerify(authorization, encoder.encode(process.env.PRIVATE_KEY))
+            
                 const serialized = serialize('authorization', '0', {
                     httpOnly: true,
                     secure: process.env.NODE_ENV === 'production',
@@ -77,7 +70,7 @@ const handleLogin  = async (req: NextApiRequest, res: NextApiResponse) => {
                     path: '/'
                 });
                 res.setHeader('Set-Cookie', serialized);
-                return res.status(200).json('logout succesfully');
+                return res.status(200).json('Sign out succesfully');
             } catch (error) {
                 return res.status(401).json({ msg: "invalid token" });
             }

@@ -1,0 +1,55 @@
+#catacpol {
+  margin-bottom: 30px;
+  box-shadow: 0px 5px 20px rgb(0, 0, 0);
+}
+
+.animation-intro {
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.catacpol {
+  animation-name: a-title;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+.lema {
+  animation-name: a-subtitle;
+
+  animation-duration: 2s;
+
+  animation-timing-function: ease-out;
+}
+
+@keyframes a-title {
+  0% {
+    transform: translateY(-100%);
+    filter: opacity(0);
+  }
+
+  50% {
+    filter: opacity(0.2);
+  }
+
+  100% {
+    filter: opacity(1);
+    transform: translateY(0%);
+  }
+}
+
+@keyframes a-subtitle {
+  0% {
+    filter: opacity(0);
+    transform: translateY(100%);
+  }
+
+  50% {
+    filter: opacity(0.2);
+  }
+
+  100% {
+    filter: opacity(1);
+    transform: translateY(0%);
+  }
+}

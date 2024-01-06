@@ -1,7 +1,7 @@
 
 
 
-import LoginForm from "@/components/book/forms/LoginForm"
+import LoginForm from "@/components/admin/forms/LoginForm"
 
 export default function login() {
     return (

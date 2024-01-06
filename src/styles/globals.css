@@ -2,14 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Railway";
+  src: url("../../public/fonts/railway_to_hells/Railway\ To\ Hells.ttf")
+    format("truetype");
+  /* Puedes cambiar "YourFont.ttf" por el nombre del archivo de fuente que copiaste en el paso 5 */
+  font-weight: normal;
+  font-style: normal;
+}
 
-input{
-    outline: none;
-    color: #000000 ;
-    color: #f8fafc;
-    color: #eff1f0; 
-    color: #1e293b;
-    color: #486491
+@font-face {
+  font-family: "Stencil";
+  src: url("../../public/fonts/stencil_style_new/Stencil\ Style\ New.ttf")
+    format("truetype");
+  /* Puedes cambiar "YourFont.ttf" por el nombre del archivo de fuente que copiaste en el paso 5 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+input {
+  outline: none;
+  color: #000000;
+  color: #000000a1;
+  color: #f8fafc;
+  color: #eff1f0;
+  color: #1e293b;
+  color: #486491;
+  color: #2f3949ab;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -22,4 +41,113 @@ input[type="number"] {
   -moz-appearance: textfield; /* Para Firefox */
   appearance: textfield; /* Para otros navegadores */
 }
+
+* {
+  scroll-behavior: smooth;
+}
+main {
+  scroll-behavior: smooth;
+}
+
+.flag {
+  position: absolute;
+  background-image: url("../../public/assests/Flag_of_Argentina.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+.sol {
+  position: absolute;
+  background-image: url("../../public/assests/Sol_de_Mayo-Bandera_de_Argentina.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+.css-flag {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    #74acdf 33.33%,
+    rgba(255, 255, 255, 1) 33.33% 66.66%,
+    rgba(116, 172, 223, 1) 66.66%
+  );
+}
+
+.title {
+  font-family: Stencil;
+  font-size: 3rem;
+  /*color: #486491; */
+  color: #5dd0f6; 
+  margin-bottom: 15px;
+}
+
+.shadow {
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+/* .texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 5 5'%3E%3Cpath fill='%23fefeff' fill-opacity='0.5' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+} */
+.test {
+  text-shadow: 0px 0px 10px black, 0px 0px 10px black;
+
+  background-color: #000000cb;
+  background: linear-gradient(
+      90deg,
+      rgba(116, 171, 223, 0) 0%,
+      rgba(0, 0, 0, 0.897) 100%
+    ),
+    radial-gradient(
+      circle at -20%,
+      rgba(116, 171, 223, 0) 0%,
+      rgba(0, 0, 0, 0.884) 100%
+    );
+}
+
+.fn-fal-logo {
+  position: absolute;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #eff1f0b0;
+  opacity: 1;
+}
+
+.fn-fal {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+.navbar {
+  background-color: #192025;
+
+  padding-block: 5px;
+  box-shadow: 0px 0px 5px black;
+}
+
+.grid-navbar {
+  gap: 3px 0px;
+  box-shadow: 0px 0px 5px black;
+}
+
+.popover {
+  background-color: #3c4a5ad5;
+
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  backdrop-filter: blur(10px);
+}
+
 

@@ -17,7 +17,7 @@ export async function verifyJWT(cook: string ) {
         }
         
         const encoder = new TextEncoder();
-        const data = await jwtVerify(jwt, encoder.encode(process.env.PRIVATE_KEY));
+        const data = await jwtVerify(jwt, encoder.encode(process.env.JWT_PRIVATE_KEY));
         return (true);
     } catch (error) {
 

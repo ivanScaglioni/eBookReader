@@ -1,18 +1,14 @@
-import NewBookForm from '@/components/book/forms/NewBookForm'
-import React from 'react'
-import Layout from '@/layout/Layout'
-
+import NewBookForm from "@/components/book/forms/NewBookForm";
+import React from "react";
+import Layout from "@/layout/Layout";
+import AdminLayout from "@/layout/AdminLayout";
 
 export default function New() {
   return (
     <div>
-      <Layout>
+      <AdminLayout>
         <NewBookForm />
-
-      </Layout>
-
-
-
+      </AdminLayout>
     </div>
-  )
+  );
 }
