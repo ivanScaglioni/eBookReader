@@ -3,6 +3,8 @@ import { procedure, router } from "../trpc";
 import Book from "@/models/Book";
 import superjson from "superjson";
 import connectDB from "@/db/db";
+
+
 connectDB();
 import { BookType } from "@/types/bookTypes";
 
@@ -11,6 +13,7 @@ import { getUrlS3 } from "@/utils/s3";
 
 const get = procedure.query(async () => {
   const books = (await Book.find()) as BookType[];
+  
   return books;
 });
 
@@ -28,7 +31,8 @@ const getCompleteBook = procedure
     })
   )
   .query(async ({ input }) => {
-    const book = await Book.findOne({ slug: input.slug }) as BookType;
+    const slugDecodificado: string = decodeURIComponent(input.slug);
+    const book = await Book.findOne({ slug: slugDecodificado }) as BookType;
     if (!book) return JSON.stringify({ error: "algo salio mal" });
     const key = book.key;
     const url = await getUrlS3(key) as string;
@@ -43,7 +47,10 @@ const getBookUrl = procedure
     })
   )
   .query(async ({ input }) => {
-    const book = await Book.findOne({ slug: input.slug });
+
+    const slugDecodificado: string = decodeURIComponent(input.slug);
+    const book = await Book.findOne({ slug: slugDecodificado });
+
     if (!book) return JSON.stringify({ error: "algo salio mal" });
     const key = book.key as string;
     const url = await getUrlS3(key);
@@ -57,7 +64,9 @@ const getBookBySlug = procedure
     })
   )
   .query(async ({ input }) => {
-    const book = await Book.findOne({ slug: input.slug }) as BookType;
+    const slugDecodificado: string = decodeURIComponent(input.slug);
+    const book = await Book.findOne({ slug: slugDecodificado }) as BookType;
+   
     return book;
   });
 
@@ -97,8 +106,9 @@ const create = procedure
 
 const deleteBySlug = procedure.input(z.string()).mutation(async ({ input, ctx }) => {
   if (ctx.auth) {
-    const deleteProduct = await Book.findOneAndDelete({ slug: input });
-    console.log(deleteProduct)
+    const slugDecodificado: string = decodeURIComponent(input);
+    const deleteProduct = await Book.findOneAndDelete({ slug: slugDecodificado});
+
     return deleteProduct
   }
   return 'error'
@@ -157,8 +167,8 @@ const update = procedure
       }
 
 
-
-      const updateBook = await Book.findOneAndUpdate({ slug: input.currentSlug }, upBook);
+      const slugDecodificado: string = decodeURIComponent(input.currentSlug);
+      const updateBook = await Book.findOneAndUpdate({ slug: slugDecodificado }, upBook);
 
 
       return updateBook;
