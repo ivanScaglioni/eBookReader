@@ -91,11 +91,11 @@ const create = procedure
     })
   )
   .mutation(async ({ input, ctx }) => {
-
+   
     if (ctx.auth) {
       const newBook = new Book(input);
       const book = await newBook.save();
-
+     
       return book;
 
     }

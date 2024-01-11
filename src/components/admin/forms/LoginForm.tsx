@@ -1,7 +1,7 @@
 import React, { FormEvent, FormEventHandler, useState } from 'react'
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-
+import { ToastContainer } from 'react-toastify';
 type Props = {}
 
 const LoginForm = (props: Props) => {
@@ -27,7 +27,7 @@ const LoginForm = (props: Props) => {
     if (res.status == 200) {
       router.push('/admin')
     } else {
-
+      const id = toast.error("Contraseña incorrecta", {autoClose:5000, })
       console.log("error")
     }
 
@@ -106,7 +106,18 @@ const LoginForm = (props: Props) => {
               </button>
             </div>
           </form>
-
+          <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
 
         </div>
       </div>

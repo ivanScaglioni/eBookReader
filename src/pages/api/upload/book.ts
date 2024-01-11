@@ -39,8 +39,8 @@ const handleFileUpload = async (
 ) => {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
-    res.status(405).json(book);
-    return;
+    return res.status(405).json(book);
+    
   }
   try {
 
@@ -49,7 +49,7 @@ const handleFileUpload = async (
       const isAuth = await verifyJWT(req.headers.cookie);
       if (!isAuth) {
 
-        res.status(405).json(book);
+        return res.status(405).json(book);
       }
     }
     const { fields, files } = await parseForm(req);
@@ -95,10 +95,10 @@ const handleFileUpload = async (
   } catch (e) {
     console.log("error");
     if (e instanceof FormidableError) {
-      res.status(e.httpCode || 400).json(book);
+      return res.status(e.httpCode || 400).json(book);
     } else {
       console.error(e);
-      res.status(500).json(book);
+      return res.status(500).json(book);
     }
   }
 
