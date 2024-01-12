@@ -151,20 +151,21 @@ export default function NewBookForm() {
 
 
       // });
-      const responseUpload = await axios({url:"/api/upload/book", headers:{
-        "Content-Type": "multipart/form-data",
-      },
-      data:formData,
-      method:'post'
+      const responseUpload = await axios({
+        url: "/api/upload/book", headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
+        method: 'post'
 
-      
-    })
+
+      })
       // const catacpolUrl = new URL(`${window.location.origin}/api/upload/book`);
 
       // const responseUpload = await fetch(catacpolUrl, {
       //   method: 'POST', body: formData, headers: {
       //     "Content-Type": "multipart/form-data",
-          
+
       //   },
       //   mode: "no-cors"
       // });
@@ -398,14 +399,14 @@ export default function NewBookForm() {
                     />
                   </div>
                   <p className="text-red-600 dark:text-red-400">
-                    {errors.pages?.message}
+                    {errors.year?.message}
                   </p>
                 </div>
               </div>
 
               <div className="sm:col-span-4 sm:col-start-1  col-span-full">
                 <label
-                  htmlFor="name"
+                  htmlFor="author"
                   className="block text-sm font-medium leading-6 "
                 >
                   Autor
