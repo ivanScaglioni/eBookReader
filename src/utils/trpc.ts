@@ -8,7 +8,7 @@ function getBaseUrl() {
     return ""
 
   }
-  if (process.env.VERCEL_URL) {
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
     // reference for vercel.com
     return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
 

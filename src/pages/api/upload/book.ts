@@ -14,7 +14,9 @@ import { verifyJWT } from "@/safety/JWT";
 export const config = {
   api: {
     bodyParser: false,
+    
   },
+  
 };
 
 type Data = {
@@ -89,11 +91,12 @@ const handleFileUpload = async (
 
       return res.status(200).json(book);
     } catch (e) {
-      console.log("error");
+      console.error('Error en el bloque catch:', e);
       if (e instanceof FormidableError) {
+        
         return res.status(e.httpCode || 400).json(book);
       } else {
-        console.error(e);
+       
         return res.status(500).json(book);
       }
     }
@@ -104,5 +107,7 @@ const handleFileUpload = async (
 
   return res.status(200).json(book);
 };
+
+
 
 export default handleFileUpload;
