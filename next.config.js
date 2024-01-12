@@ -4,7 +4,7 @@ const nextConfig = {
   images:{
     domains: ['res.cloudinary.com', 'catacpol-bucket.s3.sa-east-1.amazonaws.com'],
   },
-  crossOrigin: 'anonymous'
+
   
 }
 
