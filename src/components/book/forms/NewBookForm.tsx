@@ -145,11 +145,10 @@ export default function NewBookForm() {
       const responseUpload = await axios.post("/api/upload/book", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-        
+         
         },
+      
         
-        
-
       });
       console.log(responseUpload)
       if (responseUpload.statusText === "OK") {
