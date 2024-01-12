@@ -145,6 +145,8 @@ export default function NewBookForm() {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        method: 'POST'
+
       });
       console.log(responseUpload)
       if (responseUpload.statusText === "OK") {
