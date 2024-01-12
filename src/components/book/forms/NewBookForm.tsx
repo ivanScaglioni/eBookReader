@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+const axios = require('axios').default;
 import { trpc } from "@/utils/trpc";
 import { useForm, Controller } from "react-hook-form";
 import { number, TypeOf, z } from "zod";
@@ -151,25 +151,33 @@ export default function NewBookForm() {
 
 
       // });
+      const responseUpload = await axios({url:"/api/upload/book", headers:{
+        "Content-Type": "multipart/form-data",
+      },
+      data:formData,
+      method:'post'
 
-      const catacpolUrl = new URL(`${window.location.origin}/api/upload/book`);
+      
+    })
+      // const catacpolUrl = new URL(`${window.location.origin}/api/upload/book`);
 
-      const responseUpload = await fetch(catacpolUrl, {
-        method: 'POST', body: formData, headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        mode: "no-cors"
-      });
+      // const responseUpload = await fetch(catacpolUrl, {
+      //   method: 'POST', body: formData, headers: {
+      //     "Content-Type": "multipart/form-data",
+          
+      //   },
+      //   mode: "no-cors"
+      // });
 
-      // if (responseUpload.statusText === "OK") {
-      //   book = responseUpload.data;
-      // } else {
-      //   toast.update(id, {
-      //     render: "there was a problem uploading the image",
-      //     type: "error",
-      //     isLoading: false,
-      //   });
-      // }
+      if (responseUpload.statusText === "OK") {
+        book = responseUpload.data;
+      } else {
+        toast.update(id, {
+          render: "there was a problem uploading the image",
+          type: "error",
+          isLoading: false,
+        });
+      }
 
       console.log(responseUpload)
 
