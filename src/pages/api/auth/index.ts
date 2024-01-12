@@ -31,7 +31,6 @@ const handleLogin = async (req: NextApiRequest, res: NextApiResponse) => {
             }
         case "POST":
             try {
-                console.log("post")
                 const data = await JSON.parse(body);
                 if (data !== process.env.PASSWORD_ADMIN) return res.status(401).json({ msg: "CHUPALA" });
                 const jwtConstructor = new SignJWT({ name: 'admin', role: 'admin' });

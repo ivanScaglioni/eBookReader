@@ -8,7 +8,7 @@ import { Fields, Files } from "formidable";
 import { parseForm, FormidableError } from "@/lib/parse-form";
 import { UploadApiResponse } from "cloudinary";
 import { verifyJWT } from "@/safety/JWT";
-
+const fs = require('fs');
 
 
 export const config = {
@@ -39,6 +39,13 @@ const handleFileUpload = async (
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) => {
+
+
+  const directory = '/var/task/src';
+
+  if (!fs.existsSync(directory)){
+      fs.mkdirSync(directory, { recursive: true });
+  }
   if (req.method == 'POST' || req.method == 'post') {
     try {
 

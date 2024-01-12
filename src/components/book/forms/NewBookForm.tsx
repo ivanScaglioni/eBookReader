@@ -141,7 +141,7 @@ export default function NewBookForm() {
     if (validFiles.length > 0) {
       var formData = new FormData();
       validFiles.forEach((file) => formData.append("media", file));
-      
+
       const responseUpload = await axios.post("/api/upload/book", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -183,7 +183,7 @@ export default function NewBookForm() {
           isLoading: false,
         });
       },
-      onError(err) {
+      onError:(err)=> {
         toast.update(id, {
           autoClose: 5000,
           render: "Error",
