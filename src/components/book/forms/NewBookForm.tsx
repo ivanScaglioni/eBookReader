@@ -144,8 +144,9 @@ export default function NewBookForm() {
       const responseUpload = await axios.post("/api/upload/book", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          
         },
-        method: 'POST'
+        
 
       });
       console.log(responseUpload)
