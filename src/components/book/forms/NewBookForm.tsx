@@ -146,6 +146,7 @@ export default function NewBookForm() {
           "Content-Type": "multipart/form-data",
         },
       });
+      console.log(responseUpload)
       if (responseUpload.statusText === "OK") {
         book = responseUpload.data;
       } else {
@@ -165,7 +166,7 @@ export default function NewBookForm() {
       slug: bookSlug,
     };
 
-    console.log(newBook);
+ 
 
     addBook.mutate(newBook, {
       onSuccess: () => {

@@ -37,8 +37,8 @@ const handleFileUpload = async (
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) => {
-  if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+  if (req.method != "POST") {
+   
     return res.status(405).json(book);
     
   }
@@ -49,7 +49,7 @@ const handleFileUpload = async (
       const isAuth = await verifyJWT(req.headers.cookie);
       if (!isAuth) {
 
-        return res.status(405).json(book);
+        return res.status(500).json(book);
       }
     }
     const { fields, files } = await parseForm(req);
