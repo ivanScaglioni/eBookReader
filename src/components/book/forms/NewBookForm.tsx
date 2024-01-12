@@ -10,6 +10,7 @@ import { TRPCError } from "@trpc/server";
 import { PhotoIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { DocumentArrowUpIcon } from "@heroicons/react/24/solid";
 
+
 interface ValidBook {
   title: string;
   slug: string;
@@ -142,24 +143,46 @@ export default function NewBookForm() {
       var formData = new FormData();
       validFiles.forEach((file) => formData.append("media", file));
 
-      const responseUpload = await axios.post("/api/upload/book", formData, {
-        headers: {
+      // const responseUpload = await axios.post("/api/upload/book", formData, {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+
+      //   },
+
+
+      // });
+
+      const catacpolUrl = new URL(`${window.location.origin}/api/upload/book`);
+
+      const responseUpload = await fetch(catacpolUrl, {
+        method: 'POST', body: formData, headers: {
           "Content-Type": "multipart/form-data",
-         
         },
-      
-        
+        mode: "no-cors"
       });
+
+      // if (responseUpload.statusText === "OK") {
+      //   book = responseUpload.data;
+      // } else {
+      //   toast.update(id, {
+      //     render: "there was a problem uploading the image",
+      //     type: "error",
+      //     isLoading: false,
+      //   });
+      // }
+
       console.log(responseUpload)
-      if (responseUpload.statusText === "OK") {
-        book = responseUpload.data;
-      } else {
-        toast.update(id, {
-          render: "there was a problem uploading the image",
-          type: "error",
-          isLoading: false,
-        });
-      }
+
+      // if (responseUpload.statusText === "OK") {
+      //   book = responseUpload.json;
+      // } else {
+      //   toast.update(id, {
+      //     render: "there was a problem uploading the image",
+      //     type: "error",
+      //     isLoading: false,
+      //   });
+      // }
+
     }
 
     const bookSlug = remplaceSpace(data.title);
@@ -170,7 +193,7 @@ export default function NewBookForm() {
       slug: bookSlug,
     };
 
- 
+
 
     addBook.mutate(newBook, {
       onSuccess: () => {
@@ -182,7 +205,7 @@ export default function NewBookForm() {
           isLoading: false,
         });
       },
-      onError:(err)=> {
+      onError: (err) => {
         toast.update(id, {
           autoClose: 5000,
           render: "Error",
