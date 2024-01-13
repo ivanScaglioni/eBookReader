@@ -153,29 +153,11 @@ export default function NewBookForm() {
       });
 
 
-      /* -------------------------------------------------- */
-
-      // const responseUpload = await axios({
-      //   url: "/api/upload/book", headers: {
-      //     "Content-Type": "multipart/form-data",
-      //   },
-      //   data: formData,
-      //   method: 'post',
-        
 
 
-      // })
-      // const catacpolUrl = new URL(`${window.location.origin}/api/upload/book`);
 
-      // const responseUpload = await fetch('api/upload/file', {
-      //   method: 'POST', body: formData, headers: {
-      //     "Content-Type": "multipart/form-data",
 
-      //   },
-      //   mode: "no-cors"
-      // });
-
-      if (responseUpload.statusText === "OK") {
+      if (responseUpload.status === 200) {
         book = responseUpload.data;
       } else {
         toast.update(id, {
@@ -187,21 +169,13 @@ export default function NewBookForm() {
 
       console.log(responseUpload)
 
-      // if (responseUpload.statusText === "OK") {
-      //   book = responseUpload.json;
-      // } else {
-      //   toast.update(id, {
-      //     render: "there was a problem uploading the image",
-      //     type: "error",
-      //     isLoading: false,
-      //   });
-      // }
+ 
 
     }
     
     
 
-    return
+    
     const bookSlug = remplaceSpace(data.title);
 
     const newBook: ValidBook = {
