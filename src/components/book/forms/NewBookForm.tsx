@@ -143,23 +143,28 @@ export default function NewBookForm() {
       var formData = new FormData();
       validFiles.forEach((file) => formData.append("media", file));
 
-      // const responseUpload = await axios.post("/api/upload/book", formData, {
-      //   headers: {
-      //     "Content-Type": "multipart/form-data",
-
-      //   },
-
-
-      // });
-      const responseUpload = await axios({
-        url: "/api/upload/book", headers: {
+      const responseUpload = await axios.post("/api/upload/file", formData, {
+        headers: {
           "Content-Type": "multipart/form-data",
+
         },
-        data: formData,
-        method: 'post'
 
 
-      })
+      });
+
+
+      /* -------------------------------------------------- */
+
+      // const responseUpload = await axios({
+      //   url: "/api/upload/book", headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      //   data: formData,
+      //   method: 'post',
+        
+
+
+      // })
       // const catacpolUrl = new URL(`${window.location.origin}/api/upload/book`);
 
       // const responseUpload = await fetch(catacpolUrl, {
