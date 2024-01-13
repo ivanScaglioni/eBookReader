@@ -143,14 +143,14 @@ export default function NewBookForm() {
       var formData = new FormData();
       validFiles.forEach((file) => formData.append("media", file));
 
-      // const responseUpload = await axios.post("/api/upload/file", formData, {
-      //   headers: {
-      //     "Content-Type": "multipart/form-data",
+      const responseUpload = await axios.post("/api/upload/book", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
 
-      //   },
+        },
 
 
-      // });
+      });
 
 
       /* -------------------------------------------------- */
@@ -167,23 +167,23 @@ export default function NewBookForm() {
       // })
       // const catacpolUrl = new URL(`${window.location.origin}/api/upload/book`);
 
-      const responseUpload = await fetch('api/upload/file', {
-        method: 'POST', body: formData, headers: {
-          "Content-Type": "multipart/form-data",
+      // const responseUpload = await fetch('api/upload/file', {
+      //   method: 'POST', body: formData, headers: {
+      //     "Content-Type": "multipart/form-data",
 
-        },
-        mode: "no-cors"
-      });
+      //   },
+      //   mode: "no-cors"
+      // });
 
-      // if (responseUpload.statusText === "OK") {
-      //   book = responseUpload.data;
-      // } else {
-      //   toast.update(id, {
-      //     render: "there was a problem uploading the image",
-      //     type: "error",
-      //     isLoading: false,
-      //   });
-      // }
+      if (responseUpload.statusText === "OK") {
+        book = responseUpload.data;
+      } else {
+        toast.update(id, {
+          render: "there was a problem uploading the image",
+          type: "error",
+          isLoading: false,
+        });
+      }
 
       console.log(responseUpload)
 
@@ -198,7 +198,10 @@ export default function NewBookForm() {
       // }
 
     }
+    
+    
 
+    return
     const bookSlug = remplaceSpace(data.title);
 
     const newBook: ValidBook = {
